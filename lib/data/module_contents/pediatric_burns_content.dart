@@ -11,107 +11,79 @@ final pediatricBurnsContent = TopicData(
       blocks: [
         HeaderBlock('Epidemiology'),
 
+        TextBlock(
+          'Burns are a leading cause of injury-related morbidity in children, with approximately 100,000 children seeking burn treatment annually in the United States. Mortality has declined to less than 3% for hospitalized pediatric burns, though inhalation injury remains associated with 40-60% of burn deaths.',
+          isIntro: true,
+        ),
+
         BulletCardBlock(
           title: 'Incidence & Demographics',
           themeColor: const Color(0xFFEF4444),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
-            'Burns are the #1 cause of nonmotor vehicle death in children ages 1-4',
-            'Burns are the #2 cause of death in children ages 4-14',
-            'Scald burns are the most common pediatric burn type (vs flame burns in adults)',
-            'Scald burns are associated with child abuse/neglect — particularly immersion scalds',
-            'Children <4 years old have a higher risk of death independent of burn size',
-            'Male:female ratio is 2:1, increasing to 4:1 in adolescence',
+            'Peak age: 1 to 5 years (toddlers and preschoolers)',
+            'Scald burns: Leading mechanism in children <5 years (60-80% of pediatric burns)',
+            'Flame burns: Leading mechanism in children >5 years and adolescents',
+            'Contact burns: Third most common mechanism (hot irons, stoves, curling irons)',
+            'Non-accidental trauma (NAT): 10-20% of all pediatric burns',
+            'Male:female ratio approximately 2:1, increasing with age',
           ],
         ),
         PearlBlock(
-          'Board Pearl — Scald Burns & Abuse',
-          'Scald burns are the most common type of burn in pediatrics (unlike adults where flame burns predominate). Always consider nonaccidental trauma with immersion scald patterns — stocking/glove distribution with sharp demarcation lines and uniform burn depth suggest intentional injury.',
+          'Board Pearl -- Scald vs Flame by Age',
+          'Scald burns from hot liquids (bathwater, spilled beverages, cooking) overwhelmingly predominate in young children due to exploratory behavior, short stature, and limited ability to escape a heat source. In older children and adolescents, flame burns become the leading mechanism. Always consider NAT with immersion scald patterns.',
         ),
 
-        BulletCardBlock(
-          title: 'Nonaccidental Burns & Mortality',
-          themeColor: const Color(0xFFDC2626),
-          backgroundColor: const Color(0xFFFEF2F2),
-          points: [
-            '16% of all pediatric burn injuries are nonaccidental',
-            '50% of nonaccidental burns result from abuse (the other 50% from neglect)',
-            'Inhalation injury is an important predictor of mortality in burns',
-            'Wall outlet electrical injuries account for <15% of pediatric electrical injuries',
+        HeaderBlock('Burn Depth Classification'),
+
+        TableBlock(
+          title: 'Burn Depth Classification',
+          columns: ['Classification', 'Depth', 'Appearance', 'Sensation', 'Healing'],
+          rows: [
+            ['Superficial\n(1st degree)', 'Epidermis\nonly', 'Red, dry,\nno blisters\n(sunburn-like)', 'Painful', '3-7 days;\nno scarring'],
+            ['Superficial\nPartial Thickness\n(Superficial 2nd)', 'Epidermis +\npapillary\ndermis', 'Pink, moist,\nblisters,\nblanches', 'Very\npainful', '7-14 days;\nminimal\nscarring'],
+            ['Deep Partial\nThickness\n(Deep 2nd)', 'Epidermis +\nreticular\ndermis', 'Pale, mottled,\nless moisture,\nmay blister', 'Decreased\nsensation', '14-35 days;\nmay need\ngrafting'],
+            ['Full Thickness\n(3rd degree)', 'Entire epidermis\n+ dermis into\nsubcutaneous', 'White, waxy,\nleathery, dry\neschar', 'Insensate', 'Will NOT heal\nspontaneously;\nrequires grafting'],
+            ['Fourth Degree\n(Subdermal)', 'Through skin\ninto muscle,\nbone, tendon', 'Charred,\nexposed deep\nstructures', 'Insensate', 'Requires\nexcision;\namputation\nmay be needed'],
           ],
+          headerColor: const Color(0xFFEF4444),
         ),
-        MnemonicBlock(
-          'Suspect Abuse When Burns Show...',
-          'Sharp Lines (stocking/glove immersion pattern), Symmetric distribution, Spared flexural creases (child held in flexed position during immersion), and Story inconsistent with injury pattern. Think "4 S\'s" for suspicious burn patterns.',
+        PearlBlock(
+          'Board Pearl -- Pain Inversely Correlates with Depth',
+          'Superficial partial-thickness burns are the MOST painful because intact nerve endings in the papillary dermis are exposed and stimulated. Full-thickness burns are insensate because nerve endings are destroyed. This inverse relationship between pain and depth is a frequently tested board concept.',
+        ),
+        PearlBlock(
+          'Board Pearl -- Hypertrophic Scarring Risk',
+          'Burns that take longer than 14 to 21 days to heal have significantly higher risk of hypertrophic scarring. Deep partial-thickness and full-thickness burns carry the greatest scarring risk. Hypertrophic scars remain within the wound boundaries and tend to regress; keloid scars extend beyond the wound and do NOT regress.',
         ),
 
-        HeaderBlock('Burn Classification by Depth'),
-
+        HeaderBlock('Jackson Zones of Burn Injury'),
         BulletCardBlock(
-          title: 'Superficial (Formerly 1st Degree)',
+          title: 'Three Concentric Zones',
           themeColor: const Color(0xFFF97316),
           backgroundColor: const Color(0xFFFFF7ED),
           points: [
-            'Involves epidermis only',
-            'Appearance: Dry, warm, erythematous',
-            'Sensation: Painful',
-            'Healing: Heals without treatment in 3-7 days',
-            'Example: Sunburn',
-            'No scarring expected',
-          ],
-        ),
-        BulletCardBlock(
-          title: 'Partial Thickness (Formerly 2nd Degree)',
-          themeColor: const Color(0xFFEF4444),
-          backgroundColor: const Color(0xFFFEF2F2),
-          points: [
-            'Involves epidermis + variable depth of dermis',
-            'Superficial partial thickness: Red, painful, blistered, moist — heals in 2-3 weeks',
-            'Deep partial thickness: Dry, white or mottled, hyposensitive — may require grafting',
-            'Deep partial thickness burns may convert to full thickness if infected or poorly managed',
-          ],
-        ),
-        BulletCardBlock(
-          title: 'Full Thickness (Formerly 3rd Degree)',
-          themeColor: const Color(0xFFB91C1C),
-          backgroundColor: const Color(0xFFFEF2F2),
-          points: [
-            'Involves ALL layers of skin (epidermis + full dermis)',
-            'Appearance: White, avascular, dry, leathery (eschar)',
-            'Sensation: Anesthetic (nerve endings destroyed)',
-            'Will NOT heal without skin grafting',
-            'No blanching with pressure',
-            'Hair follicles destroyed — hair pulls out easily',
+            'Zone of Coagulation (center): Irreversible tissue destruction; protein denaturation and cell death are complete',
+            'Zone of Stasis (middle): Injured but potentially viable tissue; impaired blood flow threatens survival -- this is where clinical interventions make the greatest difference',
+            'Zone of Hyperemia (outer): Increased blood flow and inflammation; tissue typically recovers fully',
+            'Wound conversion: Inadequate management of the zone of stasis (poor perfusion, infection, desiccation) converts viable tissue to full-thickness necrosis',
           ],
         ),
         PearlBlock(
-          'Board Pearl — Burn Depth Recognition',
-          'The key distinguishing features: Superficial = painful and red. Superficial partial thickness = painful with blisters. Deep partial thickness = decreased sensation and white appearance. Full thickness = anesthetic, leathery, and avascular. Pain DECREASES as burn depth INCREASES because nerve endings are progressively destroyed.',
-        ),
-
-        TableBlock(
-          title: 'Burn Depth Comparison',
-          columns: ['Feature', 'Superficial', 'Partial Thickness', 'Full Thickness'],
-          rows: [
-            ['Depth', 'Epidermis only', 'Epidermis +\nvariable dermis', 'All skin layers'],
-            ['Appearance', 'Dry, red', 'Blistered (superficial)\nWhite (deep)', 'White, leathery,\navascular'],
-            ['Sensation', 'Painful', 'Painful (superficial)\nHyposensitive (deep)', 'Anesthetic'],
-            ['Blanching', 'Yes', 'Yes (superficial)\nNo (deep)', 'No'],
-            ['Healing', 'Spontaneous\n3-7 days', '2-3 weeks (superficial)\nMay need grafting (deep)', 'Requires\nskin grafting'],
-          ],
-          headerColor: const Color(0xFFEF4444),
+          'Board Pearl -- Zone of Stasis',
+          'The zone of stasis is the clinical target for burn wound management. Adequate fluid resuscitation, prevention of infection, and avoidance of hypotension can save tissue in this zone. Failure to manage it properly leads to wound conversion -- deepening of the burn injury.',
         ),
       ],
     ),
 
-    // ============ TAB 2: Burn Sizing ============
+    // ============ TAB 2: Burn Sizing & Fluid Resuscitation ============
     TopicTab(
-      title: 'Burn Sizing',
+      title: 'Burn Sizing & Fluids',
       blocks: [
         HeaderBlock('Pediatric Burn Size Estimation'),
 
         TextBlock(
-          'Accurate burn size estimation is critical for fluid resuscitation and determining need for hospitalization. Pediatric body proportions differ significantly from adults, making adult estimation tools inaccurate for children.',
+          'Accurate burn size estimation is critical for fluid resuscitation and determining need for hospitalization. Pediatric body proportions differ significantly from adults, making adult estimation tools inaccurate for children. Only partial-thickness and full-thickness burns are counted -- superficial (first-degree) burns are NOT included in TBSA calculations.',
           isIntro: true,
         ),
 
@@ -120,15 +92,16 @@ final pediatricBurnsContent = TopicData(
           themeColor: const Color(0xFFEF4444),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
-            'The MOST ACCURATE method for pediatric burn sizing',
-            'Uses age-adjusted body surface area percentages',
-            'Accounts for the disproportionately larger head and smaller legs in young children',
+            'Gold standard for pediatric TBSA estimation',
+            'Uses age-specific body surface area percentages',
+            'Accounts for disproportionately larger head and smaller legs in young children',
             'Should be used preferentially over Rule of 9s in all pediatric patients',
+            'Palmar method: Patient\'s palm including fingers equals approximately 1% TBSA -- useful for estimating scattered or small burns',
           ],
         ),
         PearlBlock(
-          'Board Pearl — Lund & Browder',
-          'The Lund & Browder chart is the gold standard for pediatric burn sizing because it adjusts body surface area percentages by age. The Rule of 9s overestimates leg burns and underestimates head burns in young children.',
+          'Board Pearl -- Superficial Burns Not Counted',
+          'Superficial (first-degree) burns are NOT counted in TBSA calculations for fluid resuscitation. Only partial-thickness and full-thickness burns are included. This is a commonly tested distinction.',
         ),
 
         HeaderBlock('Modified Rule of 9s for Children'),
@@ -137,89 +110,154 @@ final pediatricBurnsContent = TopicData(
           themeColor: const Color(0xFFF97316),
           backgroundColor: const Color(0xFFFFF7ED),
           points: [
-            'Child head = 18% (vs 9% in adults) — double the adult percentage',
-            'Each child leg = 14% (vs 18% in adults) — reduced from adult percentage',
-            'Trunk percentages remain the same as adults',
-            'Modification rule: 9% is taken from the legs and added to the head for a child <1 year old',
-            '1% is returned from the head to the legs each year until age 9',
-            'By age 9, proportions approximate adult Rule of 9s',
+            'Child head = 18% (vs 9% in adults) -- double the adult percentage',
+            'Each child leg = 14% (vs 18% in adults) -- reduced from adult percentage',
+            'Upper extremities remain 9% each (same as adults)',
+            'Trunk remains 18% anterior, 18% posterior (same as adults)',
+            'Head loses approximately 1% TBSA per year of age from 18% at birth toward adult values',
+            'By approximately age 9-10, proportions approach adult Rule of 9s',
           ],
         ),
         MnemonicBlock(
           'Rule of 9s Pediatric Modification',
-          'At birth, move 9% from legs to head (head = 18%, each leg = 14%). Then "give back" 1% per year from head to legs. By age 9, the child has adult proportions (head = 9%, each leg = 18%).',
+          'At birth, move 9% from legs to head (head = 18%, each leg = 14%). Then "give back" approximately 1% per year from head to legs. By age 9-10, the child has adult proportions (head = 9%, each leg = 18%).',
         ),
 
-        HeaderBlock('Burn Size Estimation by Age'),
+        HeaderBlock('Lund & Browder Chart by Age'),
         TableBlock(
           title: 'Body Surface Area Percentages by Age (Lund & Browder)',
-          columns: ['Body Area', 'Birth-1yr', '1-4yr', '5-9yr', '10-14yr', '15yr'],
+          columns: ['Body Area', '0-1yr', '1-4yr', '5-9yr', '10-14yr', '15+yr'],
           rows: [
-            ['Head', '19%', '17%', '13%', '11%', '9%'],
+            ['Head (total)', '19%', '17%', '13%', '11%', '7%'],
             ['Neck', '2%', '2%', '2%', '2%', '2%'],
             ['Anterior Trunk', '13%', '13%', '13%', '13%', '13%'],
             ['Posterior Trunk', '13%', '13%', '13%', '13%', '13%'],
             ['Each Buttock', '2.5%', '2.5%', '2.5%', '2.5%', '2.5%'],
             ['Genitalia', '1%', '1%', '1%', '1%', '1%'],
             ['Each Upper Arm', '4%', '4%', '4%', '4%', '4%'],
-            ['Each Lower Arm', '3%', '3%', '3%', '3%', '3%'],
+            ['Each Forearm', '3%', '3%', '3%', '3%', '3%'],
             ['Each Hand', '2.5%', '2.5%', '2.5%', '2.5%', '2.5%'],
-            ['Each Thigh', '5.5%', '6.5%', '8%', '8.5%', '9%'],
-            ['Each Lower Leg', '5%', '5%', '5.5%', '6%', '6.5%'],
+            ['Each Thigh', '5.5%', '6.5%', '8%', '8.5%', '9.5%'],
+            ['Each Lower Leg', '5%', '5%', '5.5%', '6%', '7%'],
             ['Each Foot', '3.5%', '3.5%', '3.5%', '3.5%', '3.5%'],
           ],
           headerColor: const Color(0xFFEF4444),
         ),
         PearlBlock(
-          'Board Pearl — Age-Based Proportions',
-          'Notice that the head percentage decreases with age (19% at birth to 9% at age 15) while the thigh percentage increases (5.5% at birth to 9% at age 15). This reflects the changing body proportions as children grow. The neck, trunk, buttocks, genitalia, arms, hands, and feet remain relatively constant.',
+          'Board Pearl -- Age-Based Proportions',
+          'Head percentage decreases with age (19% at birth to 7% in adults) while thigh percentage increases (5.5% at birth to 9.5% in adults). Neck, trunk, buttocks, genitalia, arms, hands, and feet remain relatively constant across ages.',
         ),
 
-        HeaderBlock('Hospitalization Criteria'),
-        ScaleBlock(
-          scaleName: '5-10-20 Hospitalization Rule',
-          description: 'Burn size thresholds requiring inpatient admission',
-          columns: ['Threshold', 'Criteria'],
-          rows: [
-            ['>5% TBSA', 'Full thickness burns'],
-            ['>10% TBSA', 'Partial or full thickness in children'],
-            ['>20% TBSA', 'Any burn regardless of age'],
-          ],
-          boardPearl: 'Remember 5-10-20: >5% full thickness, >10% TBSA in children, >20% TBSA overall all require hospitalization.',
-        ),
-        MnemonicBlock(
-          '5-10-20 Rule',
-          '>5% full thickness, >10% TBSA in children, >20% TBSA overall — all require hospitalization. Think "5 Full, 10 Child, 20 All."',
-        ),
-
+        HeaderBlock('Fluid Resuscitation'),
         BulletCardBlock(
-          title: 'Other Hospitalization Indications',
+          title: 'Parkland Formula',
           themeColor: const Color(0xFFDC2626),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
-            'Burns to eyes, ears, face, hands, feet, or genitalia',
-            'ALL inhalation injuries — regardless of burn size',
-            'ALL electrical burns — regardless of burn size',
-            'Burns with concomitant trauma (fractures, TBI, etc.)',
-            'Burns complicated by other medical problems (diabetes, immunosuppression)',
-            'Suspected child abuse or neglect',
+            'Parkland formula: 4 mL/kg/% TBSA of lactated Ringer\'s for the first 24 hours',
+            'Half administered in the first 8 hours FROM THE TIME OF BURN (not from hospital arrival)',
+            'Remainder given over the next 16 hours',
+            'Pediatric modification: Children <20 kg require maintenance fluids with dextrose (D5) added due to limited glycogen stores and risk of hypoglycemia',
+            'Goal urine output: 1-2 mL/kg/hr for children <30 kg',
+            'Goal urine output: 0.5-1 mL/kg/hr for children >30 kg',
           ],
         ),
         PearlBlock(
-          'Board Pearl — Special Area Burns',
-          'Burns to the face, hands, feet, genitalia, and major joints always require hospitalization regardless of size. These areas are at high risk for functional impairment and contracture formation. All electrical and inhalation injuries are also automatic admits.',
+          'Board Pearl -- Parkland Formula Timing',
+          'The Parkland formula timing starts from the time of burn, NOT from hospital arrival. Half of the calculated volume is given in the first 8 hours from burn time. Children under 20 kg need additional dextrose-containing maintenance fluids because of limited glycogen stores.',
+        ),
+
+        HeaderBlock('Hospitalization & Referral Criteria'),
+        BulletCardBlock(
+          title: 'ABA Burn Center Referral Criteria',
+          themeColor: const Color(0xFFB91C1C),
+          backgroundColor: const Color(0xFFFEF2F2),
+          points: [
+            'Partial-thickness burns >10% TBSA',
+            'Burns involving face, hands, feet, genitalia, perineum, or major joints',
+            'Full-thickness burns of ANY size',
+            'ALL electrical burns (including lightning)',
+            'ALL chemical burns',
+            'ALL inhalation injuries',
+            'Burns with complicating preexisting conditions',
+            'Burns with concomitant trauma (when burn is the greater risk)',
+            'Burns in children at facilities without pediatric capabilities',
+            'Suspected non-accidental trauma (NAT)',
+          ],
+        ),
+        PearlBlock(
+          'Board Pearl -- Special Area Burns',
+          'Burns to the face, hands, feet, genitalia, and major joints always require burn center referral regardless of size. These areas are at high risk for functional impairment and contracture formation. All electrical and inhalation injuries are also automatic referrals.',
         ),
       ],
     ),
 
-    // ============ TAB 3: Positioning & Splinting ============
+    // ============ TAB 3: Non-Accidental Trauma ============
+    TopicTab(
+      title: 'Non-Accidental Trauma',
+      blocks: [
+        HeaderBlock('NAT Burn Recognition'),
+
+        TextBlock(
+          'Approximately 10-20% of pediatric burns result from child abuse. The clinician must maintain a high index of suspicion and recognize patterns inconsistent with accidental injury. Recognizing NAT burns is critical for board examinations and clinical practice.',
+          isIntro: true,
+        ),
+
+        TableBlock(
+          title: 'NAT Burn Indicators',
+          columns: ['Indicator', 'Description'],
+          rows: [
+            ['Stocking/Glove\nDistribution', 'Symmetric, circumferential\nburns of hands or feet\nwith clear demarcation lines;\nforced immersion'],
+            ['Sparing of\nFlexion Creases', 'Child reflexively curls\nbody during immersion;\npalms, soles, antecubital,\npopliteal fossae spared'],
+            ['Uniform\nBurn Depth', 'Prolonged, forced contact\nwith single heat source'],
+            ['Doughnut Sign', 'Central sparing of\nbuttocks/perineum in forced\nimmersion (skin contacts\ncool tub bottom)'],
+            ['Dorsal Hand\nBurns', 'Children reflexively\nwithdraw in fisting pattern;\ndorsal burns suggest\nforced contact'],
+            ['Cigarette Burns', 'Circular, deep, uniform\nburns, often multiple'],
+            ['Delay in\nSeeking Care', 'More than 2 hours\nsuggests NAT'],
+            ['Inconsistent\nHistory', 'Mechanism does not\nmatch burn pattern or\nchild\'s developmental\ncapability'],
+            ['Different Healing\nStages', 'Indicates repeated\ninjury over time'],
+          ],
+          headerColor: const Color(0xFFDC2626),
+        ),
+        PearlBlock(
+          'Board Pearl -- Doughnut Sign',
+          'The doughnut sign is pathognomonic for forced immersion burns. When a child is forcibly held in hot water in a seated position, the buttocks press against the cooler bottom of the tub, creating a central zone of sparing surrounded by deep burns. This pattern cannot be explained by accidental immersion.',
+        ),
+
+        HeaderBlock('Accidental vs NAT Burn Comparison'),
+        TableBlock(
+          title: 'Accidental vs Non-Accidental Burn Patterns',
+          columns: ['Feature', 'Accidental Scald', 'NAT Burn'],
+          rows: [
+            ['Pattern', 'Irregular, splash,\nasymmetric', 'Symmetric, clear\ndemarcation,\nstocking/glove'],
+            ['Depth', 'Variable within\nwound', 'Uniform (prolonged\nforced contact)'],
+            ['Flexion\ncreases', 'Involved', 'Spared (child\nreflexively curls)'],
+            ['History', 'Consistent with\npattern and\ndevelopment', 'Inconsistent;\ndelayed presentation'],
+            ['Location', 'Variable (wherever\nliquid contacts)', 'Buttocks, perineum,\nhands, feet'],
+            ['Timing of\npresentation', 'Prompt', 'Delayed (>2 hours\nsuspicious)'],
+          ],
+          headerColor: const Color(0xFFDC2626),
+        ),
+
+        MnemonicBlock(
+          'Suspect Abuse -- "4 S\'s"',
+          'Sharp Lines (stocking/glove pattern with clear demarcation), Symmetric distribution, Spared flexural creases (child held in flexed position during immersion), Story inconsistent with injury pattern. Also remember the Doughnut Sign for forced seated immersion.',
+        ),
+        PearlBlock(
+          'Board Pearl -- Dorsal Hand Burns',
+          'Dorsal hand burns are suspicious for abuse. Children reflexively withdraw the hand in a fisting pattern (protecting the palm), so dorsal burns suggest the hand was forced onto a hot surface. Accidental burns to the hand tend to involve the palm.',
+        ),
+      ],
+    ),
+
+    // ============ TAB 4: Positioning & Splinting ============
     TopicTab(
       title: 'Positioning & Splinting',
       blocks: [
         HeaderBlock('Anti-Deformity Positioning'),
 
         TextBlock(
-          'The fundamental principle of burn rehabilitation positioning: the position of COMFORT promotes CONTRACTURE. Anti-deformity positioning places burned areas in the opposite position of the expected contracture.',
+          'The central principle of burn rehabilitation positioning: the position of COMFORT promotes CONTRACTURE. Burned skin and underlying tissue contract during healing, and the body naturally assumes flexed, adducted positions. Anti-deformity positioning places the burned area in the OPPOSITE direction of the expected contracture.',
           isIntro: true,
         ),
         MnemonicBlock(
@@ -229,69 +267,88 @@ final pediatricBurnsContent = TopicData(
 
         HeaderBlock('Positioning by Body Area'),
         TableBlock(
-          title: 'Contracture Prevention Positioning (Table 10-18)',
-          columns: ['Body Area', 'Contracture\nPredisposition', 'Anti-Contracture\nPosition'],
+          title: 'Anti-Deformity Positioning by Burn Location',
+          columns: ['Burn Location', 'Expected\nContracture', 'Anti-Deformity\nPosition'],
           rows: [
-            ['Anterior Neck', 'Flexion', 'Extension;\nNO pillows'],
-            ['Anterior Axilla', 'Shoulder\nadduction', '90° abduction;\nneutral rotation'],
-            ['Posterior Axilla', 'Shoulder\nextension', 'Shoulder flexion\n(arms overhead)'],
-            ['Elbow/Forearm', 'Flexion &\npronation', 'Extension;\nsupinated'],
-            ['Wrists', 'Flexion', '15-20° extension'],
-            ['MCPs', 'Hyperextension', '70-90° flexion'],
-            ['IPs', 'Flexion', 'Full extension'],
-            ['Palmar Burn', 'Finger flexion;\nthumb opposition', 'All joints extension;\nthumb radially\nabducted'],
-            ['Chest/Trunk', 'Lateral &\nanterior flexion', 'Straight;\nno lateral flexion'],
-            ['Hips', 'Flexion,\nadduction,\nexternal rotation', 'Extension;\n10° abduction;\nneutral rotation'],
-            ['Knees', 'Flexion', 'Extension'],
-            ['Ankles', 'Plantar flexion', '90° (neutral)\ndorsiflexion'],
+            ['Anterior Neck', 'Flexion', 'Extension;\nNO pillows;\ntowel roll under shoulders'],
+            ['Posterior Neck', 'Extension', 'Slight flexion'],
+            ['Lateral Neck', 'Lateral flexion\ntoward burn', 'Lateral flexion\nAWAY from burn'],
+            ['Axilla/Shoulder', 'Adduction', '90\u00B0 abduction;\nairplane splint'],
+            ['Anterior Elbow', 'Flexion', 'Extension'],
+            ['Posterior Elbow', 'Extension', 'Flexion\n30-40\u00B0'],
+            ['Wrist (Volar)', 'Flexion', 'Extension\n20-30\u00B0'],
+            ['Dorsal Hand', 'MCP hyperextension,\nIP flexion,\nthumb adduction\n("claw hand")', '"Safe position" /\n"Intrinsic plus":\nMCPs 70-90\u00B0 flexion,\nIPs extended,\nthumb abducted'],
+            ['Anterior Hip', 'Flexion', 'Extension;\nprone encouraged;\nneutral rotation'],
+            ['Posterior Knee', 'Flexion', 'Extension'],
+            ['Anterior Ankle', 'Dorsiflexion', 'Neutral 90\u00B0'],
+            ['Posterior/Plantar\nAnkle', 'Plantarflexion', 'Neutral 90\u00B0;\nposterior splint\nor AFO'],
           ],
           headerColor: const Color(0xFFEF4444),
         ),
         PearlBlock(
-          'Board Pearl — Neck Positioning',
-          'For anterior neck burns, the neck must be maintained in EXTENSION with NO pillows. This is one of the most commonly tested positioning questions. Allowing neck flexion (the position of comfort) leads to severe flexion contracture that limits cervical range of motion.',
+          'Board Pearl -- Neck Positioning',
+          'For anterior neck burns, the neck must be maintained in EXTENSION with NO pillows and a towel roll under the shoulders. This is one of the most commonly tested positioning questions. Posterior neck burns are the opposite -- slight flexion. Lateral neck burns position AWAY from the burned side.',
         ),
         PearlBlock(
-          'Board Pearl — Axillary Burns',
-          'Anterior axillary burns tend toward shoulder adduction — position in 90° abduction. Posterior axillary burns tend toward shoulder extension — position in shoulder flexion. The axilla is the most commonly involved area for burn contractures.',
+          'Board Pearl -- Dorsal Hand "Safe Position"',
+          'The dorsal hand burn leads to the "claw hand" deformity (MCP hyperextension, IP flexion, thumb adduction) because the thin dorsal skin contracts and the MCP collateral ligaments shorten in extension. The anti-deformity "safe position" maintains MCPs in 70-90 degrees flexion (keeping collateral ligaments at maximum length), IPs in extension, and thumb in abduction and opposition.',
         ),
         PearlBlock(
-          'Board Pearl — Hand Positioning',
-          'The "intrinsic plus" or anti-deformity position for the burned hand: MCPs flexed 70-90°, IPs extended, thumb radially abducted. This is OPPOSITE the claw hand deformity (MCP hyperextension, IP flexion) that develops without proper positioning.',
+          'Board Pearl -- Axillary Burns',
+          'The axilla is the most commonly involved area for burn contractures. The airplane splint maintains 90 degrees shoulder abduction. Must differentiate anterior vs posterior axillary burns -- anterior burns tend toward adduction (position in abduction), posterior burns tend toward extension (position in flexion).',
         ),
 
-        HeaderBlock('Splinting for Burns'),
+        HeaderBlock('Hand & Foot Burn Splinting'),
         TableBlock(
-          title: 'Hand & Foot Burn Splinting (Table 10-19)',
+          title: 'Hand & Foot Burn Splinting Positions',
           columns: ['Burn Location', 'Splint Position'],
           rows: [
-            ['Dorsal Hand', 'MCP flexion 70-90°;\nIP extension;\nthumb radial abduction'],
+            ['Dorsal Hand', 'MCP flexion 70-90\u00B0;\nIP extension;\nthumb radial abduction\n("intrinsic plus")'],
             ['Volar (Palmar)\nHand', 'MCP & IP full\nextension;\nfingers abducted;\nthumb palmar abduction'],
             ['Dorsal Foot', 'Ankle & toes in\nplantar flexion'],
             ['Sole of Foot', 'Ankle dorsiflexion;\ntoes neutral'],
           ],
           headerColor: const Color(0xFFEF4444),
         ),
-        PearlBlock(
-          'Board Pearl — Dorsal vs Volar Hand Burns',
-          'Dorsal hand burns: Splint in MCP flexion and IP extension (intrinsic plus position) because dorsal burns cause MCP hyperextension contracture. Volar hand burns: Splint in full extension with fingers abducted because palmar burns cause finger flexion contracture. The splint position is always OPPOSITE the expected contracture.',
-        ),
         MnemonicBlock(
           'Hand Burn Splinting',
           'Dorsal burn = "intrinsic plus" (MCPs flexed, IPs extended). Volar burn = "flat hand" (everything extended, fingers spread). The splint OPPOSES the contracture: dorsal skin shortening pulls MCPs into hyperextension, so splint in flexion. Palmar skin shortening pulls fingers into flexion, so splint in extension.',
         ),
+        PearlBlock(
+          'Board Pearl -- Wrapping Digits Separately',
+          'In hand and foot burns, each finger and toe must be wrapped individually to prevent web space contracture (burn syndactyly). If digits are wrapped together, the healing skin bridges across the web spaces, requiring surgical release.',
+        ),
       ],
     ),
 
-    // ============ TAB 4: Rehabilitation ============
+    // ============ TAB 5: Rehabilitation ============
     TopicTab(
       title: 'Rehabilitation',
       blocks: [
         HeaderBlock('Burn Rehabilitation Principles'),
 
         TextBlock(
-          'Rehabilitation of the pediatric burn patient begins immediately and continues throughout recovery. Early intervention is critical to prevent contracture, maintain function, and promote independence.',
+          'Rehabilitation of the pediatric burn patient begins from the moment of admission and continues throughout recovery. The approach spans three phases: acute/inpatient, subacute/outpatient, and long-term/reconstructive.',
           isIntro: true,
+        ),
+
+        HeaderBlock('Early Mobilization & ROM'),
+        BulletCardBlock(
+          title: 'Active Range of Motion',
+          themeColor: const Color(0xFFF97316),
+          backgroundColor: const Color(0xFFFFF7ED),
+          points: [
+            'Active ROM and stretching should begin within 24-48 hours of admission',
+            'Active and active-assisted ROM is PREFERABLE to passive ROM',
+            'Active ROM promotes patient engagement and is less likely to cause tissue disruption at graft sites',
+            'ROM exercises should be performed multiple times daily',
+            'After skin grafting, the grafted area is typically immobilized for 3-5 days to allow graft adherence, then gentle ROM resumes',
+            'Donor sites heal as superficial partial-thickness wounds and may be more painful than graft sites',
+          ],
+        ),
+        PearlBlock(
+          'Board Pearl -- Active vs Passive ROM',
+          'Active and active-assisted ROM is always preferable to passive ROM in burn rehabilitation. Active exercise promotes patient engagement, provides functional strengthening, and is less likely to cause tissue disruption at graft sites.',
         ),
 
         HeaderBlock('Splinting'),
@@ -300,78 +357,60 @@ final pediatricBurnsContent = TopicData(
           themeColor: const Color(0xFFEF4444),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
-            'Initiated at the first indication of developing skin tightening',
-            'Position of comfort = position of contracture — splint in anti-deformity position',
+            'Splints maintain anti-deformity positions when the patient is resting or sleeping',
+            'Fabricated from thermoplastic materials and adjusted as wound healing progresses',
+            'Removed several times daily for active exercise',
             'Small children do NOT tend to lose strength or mobility in splints if removed for regular exercise',
-            'Splints should be checked and adjusted frequently as edema changes',
             'Splinting is continued until the scar has matured',
           ],
         ),
         PearlBlock(
-          'Board Pearl — Pediatric Splinting',
+          'Board Pearl -- Pediatric Splinting Advantage',
           'Unlike adults, small children generally do not lose strength or mobility when splinted, as long as the splints are removed regularly for exercise. This makes aggressive splinting programs well-tolerated in the pediatric population.',
         ),
 
-        HeaderBlock('Range of Motion'),
+        HeaderBlock('Scar Management'),
         BulletCardBlock(
-          title: 'ROM Progression',
-          themeColor: const Color(0xFFF97316),
-          backgroundColor: const Color(0xFFFFF7ED),
+          title: 'Pressure Garment Therapy',
+          themeColor: const Color(0xFF8B5CF6),
+          backgroundColor: const Color(0xFFF5F3FF),
           points: [
-            'Begin once the patient is medically stable',
-            'Progress from gentle repetitive ROM to more aggressive stretching as tolerated',
-            'Active and active-assisted ROM is PREFERABLE to passive ROM',
-            'Active ROM promotes patient participation and self-efficacy',
-            'Passive ROM reserved for patients unable to perform active movement',
-            'ROM exercises should be performed multiple times daily',
-          ],
-        ),
-        PearlBlock(
-          'Board Pearl — Active vs Passive ROM',
-          'Active and active-assisted ROM is always preferable to passive ROM in burn rehabilitation. Active exercise promotes patient engagement, provides functional strengthening, and is less likely to cause tissue disruption at graft sites.',
-        ),
-
-        HeaderBlock('Activities of Daily Living'),
-        BulletCardBlock(
-          title: 'ADL Participation',
-          themeColor: const Color(0xFF0D9488),
-          backgroundColor: const Color(0xFFF0FDFA),
-          points: [
-            'Encourage participation in ADLs as soon as possible when medically stable',
-            'Self-care activities provide meaningful ROM exercise',
-            'Feeding, grooming, and dressing activities promote upper extremity function',
-            'Adaptive equipment may be needed initially but should be weaned as function improves',
-            'Play-based activities are essential for pediatric engagement in therapy',
+            'Custom pressure garments delivering 23-25 mmHg of pressure',
+            'Worn 23 hours per day for 12-18 months or until scar maturation',
+            'Scar maturation indicated by scar that is flat, soft, and pale',
+            'Effective for reducing scar thickness; effects on color and pliability are less clear',
+            'Silicone sheeting or gel applied under pressure garments improves pliability',
+            'Silicone mechanism: Sustained hydration of stratum corneum modulates collagen synthesis',
           ],
         ),
 
-        HeaderBlock('Exercise & Ambulation'),
         BulletCardBlock(
-          title: 'Exercise Programming',
+          title: 'Vancouver Scar Scale (VSS)',
           themeColor: const Color(0xFF3B82F6),
           backgroundColor: const Color(0xFFEFF6FF),
           points: [
-            'Children frequently experience loss of strength and motor function after burns',
-            'Exercise programs should emphasize flexibility, strength, AND endurance',
-            'Ambulation should begin 48-72 hours post-injury when vital signs are stable',
-            'Early ambulation prevents deconditioning and deep vein thrombosis',
-            'Resistance exercise is safe and effective in pediatric burn patients',
-            'Aerobic conditioning helps restore cardiopulmonary function',
+            'Most widely used scar assessment tool',
+            'Pigmentation: 0-3 points',
+            'Vascularity: 0-3 points',
+            'Pliability: 0-5 points',
+            'Height: 0-3 points',
+            'Total score: 0-14 (higher = worse scar)',
+            'POSAS (Patient and Observer Scar Assessment Scale) is more comprehensive, incorporating patient perspective',
           ],
         ),
-        MnemonicBlock(
-          '48-72 Hour Rule',
-          'Ambulation should begin 48-72 hours post-burn injury when vital signs are stable. Early mobilization is critical — it prevents deconditioning, DVT, contracture, and promotes independence. Programs should address all three components: Flexibility, Strength, Endurance (FSE).',
+        PearlBlock(
+          'Board Pearl -- Hypertrophic vs Keloid Scars',
+          'Hypertrophic scars remain within the boundaries of the original wound and tend to regress over time. Keloid scars extend beyond wound boundaries and do NOT regress. Hypertrophic scarring is more common after burns healing beyond 14-21 days. Z-plasty is the surgical technique used to release linear contracture bands.',
         ),
 
         HeaderBlock('Physical Modalities'),
         BulletCardBlock(
           title: 'Modality Use in Burns',
-          themeColor: const Color(0xFF8B5CF6),
-          backgroundColor: const Color(0xFFF5F3FF),
+          themeColor: const Color(0xFF0D9488),
+          backgroundColor: const Color(0xFFF0FDFA),
           points: [
-            'Fluidotherapy: Helpful for scar therapy — provides desensitization and active ROM',
-            'Paraffin: Helpful for scar therapy — softens and moisturizes scar tissue',
+            'Fluidotherapy: Helpful for scar therapy -- provides desensitization and active ROM',
+            'Paraffin: Softens and moisturizes scar tissue',
             'Ultrasound: Use EXTREME CAUTION near epiphyseal (growth) plates',
             'Ultrasound near growth plates may cause PREMATURE EPIPHYSEAL CLOSURE',
             'Pressure garments: Worn 23 hours/day to minimize hypertrophic scarring',
@@ -379,61 +418,122 @@ final pediatricBurnsContent = TopicData(
           ],
         ),
         PearlBlock(
-          'Board Pearl — Ultrasound Precaution',
+          'Board Pearl -- Ultrasound Precaution',
           'Ultrasound must be used with extreme caution near epiphyseal plates in children. It may cause premature epiphyseal closure, leading to growth disturbances and limb length discrepancy. This is a commonly tested safety precaution in pediatric rehabilitation.',
         ),
 
-        HeaderBlock('Burns Requiring Special Attention'),
+        HeaderBlock('Pediatric-Specific Considerations'),
         BulletCardBlock(
-          title: 'Neck Burns',
+          title: 'Growth & Development Challenges',
+          themeColor: const Color(0xFFDC2626),
+          backgroundColor: const Color(0xFFFEF2F2),
+          points: [
+            'Growth-related contracture recurrence: Scar tissue does not grow proportionally -- serial release procedures may be necessary',
+            'Compliance challenges: Young children cannot understand rationale for uncomfortable splints and garments',
+            'Developmental impact: Burns during critical periods can delay motor milestones, cause school absenteeism, and create lasting psychosocial sequelae',
+            'Thermoregulation: Large burns impair thermoregulatory capacity due to loss of sweat glands in grafted and scarred skin',
+            'Exercise and activity counseling must account for impaired thermoregulation',
+            'Psychosocial support: Body image concerns, post-traumatic stress, and social reintegration are paramount',
+          ],
+        ),
+
+        HeaderBlock('Exercise & Conditioning'),
+        BulletCardBlock(
+          title: 'Exercise Programming',
+          themeColor: const Color(0xFF3B82F6),
+          backgroundColor: const Color(0xFFEFF6FF),
+          points: [
+            'Structured exercise programs improve lean body mass and muscle strength',
+            'Benefits are maintained ONLY with ongoing participation -- lost when programs are discontinued',
+            'Ambulation should begin 48-72 hours post-injury when vital signs are stable',
+            'Programs should address all three components: Flexibility, Strength, Endurance',
+            'Play-based activities are essential for pediatric engagement in therapy',
+            'Encourage ADL participation as soon as possible for meaningful ROM exercise',
+          ],
+        ),
+        MnemonicBlock(
+          '48-72 Hour Rule',
+          'Ambulation should begin 48-72 hours post-burn injury when vital signs are stable. Early mobilization prevents deconditioning, DVT, contracture, and promotes independence. Exercise benefits are lost when programs are discontinued -- ongoing participation is essential.',
+        ),
+      ],
+    ),
+
+    // ============ TAB 6: Special Burn Areas ============
+    TopicTab(
+      title: 'Special Burn Areas',
+      blocks: [
+        HeaderBlock('Burns Requiring Special Attention'),
+
+        TextBlock(
+          'Certain anatomic burn locations require specialized positioning, splinting, and rehabilitation approaches due to high functional significance and propensity for contracture formation.',
+          isIntro: true,
+        ),
+
+        HeaderBlock('Neck Burns'),
+        BulletCardBlock(
+          title: 'Neck Burn Management',
           themeColor: const Color(0xFFEF4444),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
-            'Position in cervical hyperextension — NO pillows',
-            'Thermoplastic conformers (neck splints) are used to maintain extension',
+            'Anterior neck: Position in cervical hyperextension -- NO pillows; towel roll under shoulders',
+            'Posterior neck: Position in slight flexion',
+            'Lateral neck: Position AWAY from the burned side',
+            'Thermoplastic conformers (neck splints) maintain position',
             'Triple-component neck conformer for circumferential burns',
             'Monitor for developing microstomia with facial burns',
             'Neck contractures severely limit function and are difficult to correct surgically',
           ],
         ),
+
+        HeaderBlock('Axillary Burns'),
         BulletCardBlock(
-          title: 'Axillary Burns',
+          title: 'Axillary Burn Management',
           themeColor: const Color(0xFFDC2626),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
             'The axilla is the MOST COMMONLY involved area for burn contractures',
-            'Airplane splint maintains shoulder in 90° abduction',
-            'Must differentiate anterior vs posterior axillary burns for proper positioning',
+            'Airplane splint maintains shoulder in 90 degrees abduction',
             'Anterior axilla: Position in abduction and slight flexion',
             'Posterior axilla: Position in flexion (arms overhead)',
             'Aggressive ROM program essential to prevent contracture',
+            'Axillary contractures significantly limit upper extremity function',
           ],
         ),
-        PearlBlock(
-          'Board Pearl — Axillary Contracture',
-          'The axilla is the most commonly involved area for burn contracture formation. The airplane splint (maintaining 90° shoulder abduction) is the primary splinting intervention. Early and aggressive ROM is essential because axillary contractures significantly limit upper extremity function.',
-        ),
+
+        HeaderBlock('Hand & Foot Burns'),
         BulletCardBlock(
-          title: 'Hand & Foot Burns',
+          title: 'Hand & Foot Burn Management',
           themeColor: const Color(0xFFB91C1C),
           backgroundColor: const Color(0xFFFEF2F2),
           points: [
             'Rapid contracture formation due to small anatomic size in children',
             'Fingers and toes must be wrapped SEPARATELY to prevent web space syndactyly',
             'Splinting is UNIVERSAL for maintaining ROM in hand and foot burns',
-            'Dorsal hand burns: Intrinsic plus position (MCP flexion, IP extension)',
+            'Dorsal hand burns: "Intrinsic plus" position (MCPs 70-90 degrees flexion, IPs extended, thumb abducted)',
             'Volar hand burns: Full extension with fingers abducted',
-            'Early active ROM is critical — hands and feet stiffen quickly',
+            'Early active ROM is critical -- hands and feet stiffen quickly',
             'Edema control with elevation is essential in the acute phase',
           ],
         ),
         MnemonicBlock(
-          'Special Burn Areas — NAH',
-          'Neck (hyperextension, no pillows, thermoplastic conformers), Axilla (most common contracture area, airplane splint at 90°), Hands/Feet (rapid contractures, wrap digits separately, universal splinting). These three areas require the most aggressive positioning and rehabilitation intervention.',
+          'Special Burn Areas -- NAH',
+          'Neck (hyperextension, no pillows, thermoplastic conformers), Axilla (most common contracture area, airplane splint at 90 degrees), Hands/Feet (rapid contractures, wrap digits separately, universal splinting). These three areas require the most aggressive positioning and rehabilitation intervention.',
+        ),
+
+        HeaderBlock('Rehabilitation Across Phases'),
+        TableBlock(
+          title: 'Burn Rehabilitation by Phase of Care',
+          columns: ['Phase', 'Focus', 'Key Interventions'],
+          rows: [
+            ['Acute\n(ICU/Inpatient)', 'Positioning,\nsplinting,\nearly ROM', 'Begin ROM within\n24-48 hours;\npain management;\ncoordinate with\nsurgical team re: grafts'],
+            ['Subacute\n(Outpatient)', 'Scar management,\nfunctional\nrestoration', 'Pressure garments\nwhen wounds healed;\nsilicone sheeting;\nprogressive\nstrengthening'],
+            ['Long-Term\n(Reconstructive)', 'Scar maturation,\nsurgical revision\nif needed', 'Scar maturation\n12-18 months;\nZ-plasty, tissue\nexpansion;\nongoing psychosocial\nsupport'],
+          ],
+          headerColor: const Color(0xFFEF4444),
         ),
         PearlBlock(
-          'Board Pearl — Wrapping Digits Separately',
-          'In hand and foot burns, each finger and toe must be wrapped individually to prevent web space contracture (burn syndactyly). If digits are wrapped together, the healing skin bridges across the web spaces, requiring surgical release. This is a fundamental principle of pediatric burn wound care.',
+          'Board Pearl -- Post-Graft Immobilization',
+          'After skin grafting, the grafted area is typically immobilized for 3-5 days to allow graft adherence, after which gentle ROM is resumed. Donor sites heal as superficial partial-thickness wounds and may actually be MORE painful than the graft sites themselves.',
         ),
       ],
     ),

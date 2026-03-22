@@ -5,350 +5,533 @@ final developmentGrowthContent = TopicData(
   id: 'development-growth',
   title: 'Development & Growth',
   tabs: [
-    // ============ TAB 1: Growth Parameters ============
+    // ============ TAB 1: Gross Motor Milestones ============
     TopicTab(
-      title: 'Growth',
+      title: 'Gross Motor',
       blocks: [
-        HeaderBlock('Growth Parameters'),
+        HeaderBlock('Gross Motor Milestones'),
         TextBlock(
-          'Development includes maturation of organs and systems; acquisition of physical, intellectual, and interpersonal skills; ability to adapt more readily to stress; and capacity for creative expression. Growth signifies increase in size.',
+          'Gross motor development follows a cephalocaudal (head-to-toe) and proximal-to-distal progression. Mastery of antigravity control in prone precedes sitting, which precedes standing and walking.',
           isIntro: true,
         ),
-
-        HeaderBlock('Height'),
-        BulletCardBlock(
-          title: 'Height Growth Milestones',
-          themeColor: const Color(0xFF06B6D4),
-          backgroundColor: const Color(0xFFECFEFF),
-          points: [
-            'Birth length doubles by approximately age 4 years',
-            'Birth length triples by age 13 years',
-            'First year: ~10 inches (25 cm)',
-            'Second year: ~5 inches (12.5 cm)',
-            'Third year: ~3-4 inches (7.5-10 cm)',
-            'Thereafter until puberty: ~2-3 inches (5-7.5 cm) per year',
+        TableBlock(
+          title: 'Key Gross Motor Milestones',
+          columns: ['Age', 'Milestone', 'Board Pearl'],
+          rows: [
+            ['Newborn', 'Physiologic flexion posture; complete head lag on pull-to-sit', 'Flexor tone predominates in full-term newborns'],
+            ['2 months', 'Lifts head 45 degrees in prone', 'Beginning antigravity head control'],
+            ['3 months', 'Lifts head 90 degrees; props on forearms; minimal head lag', 'Head control emerges; forearm propping = upper trunk strength'],
+            ['4 months', 'Props on extended arms; rolls prone to supine; no head lag', 'Absence of head lag by 4 months is expected'],
+            ['6 months', 'Rolls both directions; sits with support (tripod); briefly sits unsupported', 'Tripod sitting transitions to independent sitting'],
+            ['9 months', 'Crawls well; pulls to stand; cruises', 'Mobility and upright posture emerging'],
+            ['12 months', 'Walks independently (range 9-15 months)', '97% of children walk by 18 months'],
+            ['15 months', 'Walks well; stoops to recover objects; begins stiff-legged running', 'Stable gait with improved balance'],
+            ['18 months', 'Runs stiffly; walks upstairs with hand held (marking time); kicks ball', 'Marking time = two feet on each step'],
+            ['24 months', 'Runs well; walks up/down stairs marking time; jumps with both feet', 'Bilateral coordination for jumping'],
+            ['3 years', 'Alternates feet going upstairs; rides tricycle; stands on one foot 1-2 sec', 'Reciprocal stair climbing is a 3-year milestone'],
+            ['4 years', 'Hops on one foot; alternates feet going downstairs; catches large ball', 'Downstairs alternation follows upstairs by ~1 year'],
+            ['5 years', 'Skips; hops on each foot; heel-to-toe tandem walk', 'Skip = the signature 5-year gross motor skill'],
           ],
-        ),
-
-        HeaderBlock('Weight'),
-        BulletCardBlock(
-          title: 'Weight Growth Milestones',
-          themeColor: const Color(0xFF8B5CF6),
-          backgroundColor: const Color(0xFFF5F3FF),
-          points: [
-            'Average birth weight: ~7 lb 5 oz (3.33 kg)',
-            'Newborns lose up to 10% of birth weight in first few days',
-            'Birth weight DOUBLES by 4-5 months',
-            'Birth weight TRIPLES by end of first year',
-            'Birth weight QUADRUPLES by end of second year',
-            'Ages 2-9: Annual increment ~5 lb (2.25 kg) per year',
-          ],
+          headerColor: const Color(0xFF06B6D4),
         ),
         PearlBlock(
-          'Board Pearl — Weight Milestones',
-          'Birth weight doubles by 4-5 months, triples by 12 months, and quadruples by 24 months. These are commonly tested milestones.',
-        ),
-
-        HeaderBlock('Head & Skull'),
-        BulletCardBlock(
-          title: 'Head Development',
-          themeColor: const Color(0xFF0D9488),
-          backgroundColor: const Color(0xFFF0FDFA),
-          points: [
-            'At birth, the head is approximately 2/3 to 3/4 of total mature size',
-            'The rest of the body is only 1/4 of adult size at birth',
-            'Six fontanelles present at birth: anterior, posterior, two sphenoid, two mastoid',
-            'Anterior fontanelle closes between 10-14 months (may remain open until 18 months)',
-            'Posterior fontanelle closes by 4 months',
-            'Cranial sutures do not ossify completely until later childhood',
-          ],
+          'Board Pearl — Stair-Climbing Progression',
+          'The stair-climbing progression is a board favorite: marking time UP at 2 years, alternating feet UP at 3 years, alternating feet DOWN at 4 years. Think "2-3-4 stair rule."',
         ),
         PearlBlock(
-          'Board Pearl — Fontanelle Closure',
-          'Anterior fontanelle: 10-14 months (up to 18 months). Posterior fontanelle: by 4 months. Early closure may indicate craniosynostosis. Late closure may suggest hypothyroidism, rickets, or increased ICP.',
-        ),
-
-        HeaderBlock('Ossification Centers'),
-        BulletCardBlock(
-          title: 'Bone Development Facts',
-          themeColor: const Color(0xFFF97316),
-          backgroundColor: const Color(0xFFFFF7ED),
-          points: [
-            'At birth: 5 ossification centers — distal femur, proximal tibia, calcaneus, talus, cuboid',
-            'Clavicle is the FIRST bone to calcify in utero (5th fetal week)',
-            'Greatest changes in bone mass: Girls ages 12-15, boys ages 14-17',
-            'Peak bone mass reached between ages 25-35 in both sexes',
-          ],
+          'Board Pearl — Walking',
+          'Independent walking typically occurs at 12 months. Failure to walk by 18 months warrants evaluation. The 97th percentile for walking onset is 18 months.',
         ),
         PearlBlock(
-          'Board Pearl',
-          'The 5 ossification centers present at birth are: distal femur, proximal tibia, calcaneus, talus, and cuboid. The clavicle is the first bone to calcify in utero.',
+          'Board Pearl — Key Milestones Summary',
+          'Head control 4 mo, sits 6-7 mo, crawls 9 mo, walks 12 mo, runs 18 mo, stairs 2 yr, tricycle 3 yr, hops 4 yr, skips 5 yr.',
         ),
       ],
     ),
 
-    // ============ TAB 2: Primitive & Postural Reflexes ============
+    // ============ TAB 2: Fine Motor & Language ============
     TopicTab(
-      title: 'Reflexes',
+      title: 'Fine Motor & Language',
       blocks: [
+        HeaderBlock('Fine Motor — Grasp Development'),
+        TextBlock(
+          'Fine motor development follows a predictable progression from reflexive grasping to precise voluntary manipulation. Two high-yield sequences dominate board examinations: the grasp progression and the drawing/copying progression.',
+          isIntro: true,
+        ),
+        TableBlock(
+          title: 'Grasp Development Progression',
+          columns: ['Stage', 'Age', 'Description'],
+          rows: [
+            ['Reflexive grasp', '0-2 months', 'Involuntary palmar grasp reflex'],
+            ['Ulnar palmar grasp', '3-4 months', 'Objects held against ulnar side of palm'],
+            ['Palmar grasp', '4-5 months', 'Whole-hand crude grasp'],
+            ['Radial palmar grasp', '5-6 months', 'Thumb begins to participate'],
+            ['Radial digital grasp', '7-8 months', 'Object held in fingertips with thumb opposition'],
+            ['Inferior (scissors) pincer', '8-9 months', 'Crude thumb-index opposition'],
+            ['Superior (neat) pincer', '10-12 months', 'Precise tip-to-tip thumb-index opposition'],
+            ['Voluntary release', '12 months', 'Controlled letting go of objects'],
+          ],
+          headerColor: const Color(0xFF8B5CF6),
+        ),
+        PearlBlock(
+          'Board Pearl — Grasp Reflex Integration',
+          'The palmar grasp reflex must integrate (disappear by 4-6 months) BEFORE voluntary grasp can develop. Persistence of the palmar grasp reflex beyond 6 months suggests upper motor neuron pathology.',
+        ),
+
+        HeaderBlock('Block Tower Progression'),
+        TableBlock(
+          title: 'Block Stacking by Age',
+          columns: ['Age', 'Blocks'],
+          rows: [
+            ['12 months', '2 blocks'],
+            ['15 months', '2-3 blocks'],
+            ['18 months', '3-4 blocks'],
+            ['24 months', '6-7 blocks'],
+            ['30 months', '8 blocks'],
+            ['36 months', '9-10 blocks; bridge of 3 blocks'],
+          ],
+          headerColor: const Color(0xFF8B5CF6),
+        ),
+
+        HeaderBlock('Drawing & Copying Progression'),
+        TableBlock(
+          title: 'Shape Copying by Age',
+          columns: ['Age', 'Skill'],
+          rows: [
+            ['12-15 months', 'Scribbles spontaneously'],
+            ['2 years', 'Imitates vertical line and circular strokes'],
+            ['2.5 years', 'Imitates horizontal line'],
+            ['3 years', 'Copies circle; imitates cross'],
+            ['4 years', 'Copies cross (+); draws person with 3+ parts'],
+            ['4.5 years', 'Copies square'],
+            ['5 years', 'Copies triangle; draws person with 6+ parts'],
+            ['6 years', 'Copies diamond; writes first name'],
+          ],
+          headerColor: const Color(0xFF0D9488),
+        ),
+        MnemonicBlock(
+          'Shape Copying Mnemonic',
+          'Circle, Cross, Square, Triangle, Diamond = ages 3, 4, 4.5, 5, 6. "Imitates" (watches examiner draw) is easier and precedes "copies" (reproduces from a static model).',
+        ),
+        PearlBlock(
+          'Board Pearl — Hand Dominance',
+          'Hand dominance typically establishes between 18-36 months. Consistent hand preference BEFORE 12-18 months is a RED FLAG that should prompt evaluation for contralateral hemiparesis (cerebral palsy or perinatal stroke).',
+        ),
+
+        HeaderBlock('Language Development'),
+        TableBlock(
+          title: 'Language Milestones',
+          columns: ['Age', 'Receptive', 'Expressive'],
+          rows: [
+            ['Newborn', 'Alerts to sound; prefers human voice', 'Differentiated crying'],
+            ['2 months', 'Recognizes familiar voices', 'Cooing (vowel sounds); social smile'],
+            ['4 months', 'Turns toward sound source', 'Laughing; beginning consonant sounds'],
+            ['6 months', 'Responds to name', 'Babbling (CV combos: "ba-ba-ba")'],
+            ['9 months', 'Understands "no"; gestures', '"Mama/dada" nonspecific; waving, pointing'],
+            ['12 months', 'Follows 1-step commands w/ gesture', 'First true words (1-3); "mama/dada" specific'],
+            ['15 months', 'Points to desired objects', '4-6 words; uses jargon'],
+            ['18 months', 'Points to body parts; follows simple commands', '10-25 words; points to indicate wants'],
+            ['24 months', 'Follows 2-step commands', '50+ words; 2-word phrases; 50% intelligible'],
+            ['36 months', 'Knows age, sex, full name', '250-1000 words; 3-word sentences; 75% intelligible'],
+            ['4 years', 'Understands colors; follows complex commands', 'Full sentences (4-5 words); tells stories; 100% intelligible'],
+            ['5 years', 'Defines words; counts to 10+', 'Fluent speech; 5-6 word sentences; correct grammar'],
+          ],
+          headerColor: const Color(0xFF3B82F6),
+        ),
+        PearlBlock(
+          'Board Pearl — Speech Intelligibility Rule',
+          'Frequently tested: 50% intelligible at 2 years, 75% at 3 years, 100% at 4 years. This applies to UNFAMILIAR listeners; parents often understand more.',
+        ),
+        PearlBlock(
+          'Board Pearl — Babbling',
+          '"Babbling" (consonant-vowel combinations) at 6 months is a critical milestone. Absence of babbling by 12 months is a red flag for hearing impairment, autism, or other communication disorders.',
+        ),
+      ],
+    ),
+
+    // ============ TAB 3: Social-Emotional & Reflexes ============
+    TopicTab(
+      title: 'Social & Reflexes',
+      blocks: [
+        HeaderBlock('Social-Emotional Development'),
+        TextBlock(
+          'Social-emotional milestones follow a predictable progression from early social engagement through cooperative play. These milestones are critical for identifying autism spectrum disorder and other developmental concerns.',
+          isIntro: true,
+        ),
+        TableBlock(
+          title: 'Social-Emotional Milestones',
+          columns: ['Age', 'Milestone', 'Board Significance'],
+          rows: [
+            ['2 months', 'Social smile (in response to face/voice)', 'One of the most frequently tested milestones'],
+            ['3 months', 'Recognizes parent; anticipatory excitement', 'Social engagement emerging'],
+            ['6 months', 'Stranger anxiety emerging; peek-a-boo', 'Recognition of familiar vs unfamiliar'],
+            ['9 months', 'Separation anxiety peaks (9-18 mo); object permanence', 'Attachment; Piaget sensorimotor stage'],
+            ['12 months', 'Gives objects on request; attachment behaviors', 'Joint attention and reciprocity'],
+            ['18 months', 'Beginning pretend play; parallel play', 'Symbolic play = important cognitive marker'],
+            ['24 months', 'Parallel play predominates; removes clothing', 'Play alongside but not truly with peers'],
+            ['36 months', 'Group play beginning; shares with prompting', 'Transition toward cooperative play'],
+            ['4 years', 'Cooperative play; imaginative play; has friends', 'True interactive play with shared goals'],
+            ['5 years', 'Competitive games; follows rules; right/wrong', 'Rule-governed play and moral reasoning'],
+          ],
+          headerColor: const Color(0xFF6366F1),
+        ),
+        PearlBlock(
+          'Board Pearl — Social Smile',
+          'The social smile at 2 months is one of the most commonly tested milestones on the PM&R boards. Absence of social smile by 2 months warrants evaluation for visual impairment, hearing loss, or neurodevelopmental concerns.',
+        ),
+        PearlBlock(
+          'Board Pearl — Play Progression',
+          'The play progression is a board staple: solitary play (infancy) --> parallel play (2 years) --> associative play (3 years) --> cooperative play (4 years). Cooperative play requires theory of mind, which develops around 4-5 years.',
+        ),
+
         HeaderBlock('Primitive Reflexes'),
         TextBlock(
-          'In neonates and infants, motor behavior is influenced by primitive reflexes due to the immature CNS. During the first 6-8 months of life, these reflexes are gradually suppressed as the CNS matures. Obligatory or persistent primitive reflexes are the earliest markers of abnormal neurological maturation.',
-          isIntro: true,
+          'Primitive reflexes are brainstem-mediated motor patterns present in early infancy that are subsequently inhibited as the cerebral cortex matures. Their persistence beyond expected integration ages is a hallmark of upper motor neuron pathology, most notably cerebral palsy.',
         ),
-        PearlBlock(
-          'Board Pearl — Red Flag',
-          'Obligatory or persistent primitive reflexes beyond their expected integration age are the earliest markers of abnormal neurological maturation and suggest CNS pathology (commonly tested in the context of cerebral palsy).',
-        ),
-
-        ScaleBlock(
-          scaleName: 'Primitive Reflexes — Emergence & Integration',
-          description: 'Key reflexes with expected age of suppression',
-          columns: ['Reflex', 'Present', 'Integrates'],
-          rows: [
-            ['Moro', 'Birth', '4-6 months'],
-            ['ATNR (asymmetric tonic neck)', 'Birth', '4-6 months'],
-            ['Palmar grasp', 'Birth', '4-6 months'],
-            ['Rooting', 'Birth', '3-4 months'],
-            ['Positive supporting', 'Birth', '3-4 months'],
-            ['Galant (trunk incurvation)', 'Birth', '4-6 months'],
-            ['Automatic neonatal walking', 'Birth', '3-4 months'],
-            ['Symmetric tonic neck', 'Birth', '6-7 months'],
-            ['Tonic labyrinthine', 'Birth', '4-6 months'],
-            ['Plantar grasp', 'Birth', '9-12 months'],
-          ],
-          boardPearl: 'Plantar grasp integrates LAST (9-12 months) — much later than palmar grasp (4-6 months). This is a commonly tested distinction.',
-        ),
-
-        HeaderBlock('Key Primitive Reflexes'),
-        ComparisonCardBlock(
-          title: 'Moro Reflex',
-          themeColor: const Color(0xFF8B5CF6),
-          backgroundColor: const Color(0xFFF5F3FF),
-          icon: Icons.open_with_rounded,
-          description: 'Sudden extension/head drop causes symmetrical abduction and extension of arms followed by adduction (embracing). Integrates 4-6 months.',
-          keyPoints: [
-            'Absent Moro = severe CNS depression or cervical cord injury',
-            'Asymmetric Moro = brachial plexus injury (Erb palsy) or fractured clavicle',
-            'Persistent Moro = CNS pathology',
-          ],
-        ),
-        ComparisonCardBlock(
-          title: 'ATNR (Fencing Reflex)',
-          themeColor: const Color(0xFF06B6D4),
-          backgroundColor: const Color(0xFFECFEFF),
-          icon: Icons.sports_martial_arts_rounded,
-          description: 'Head rotation causes extension of arm/leg on face side and flexion on occiput side. Integrates 4-6 months.',
-          keyPoints: [
-            'OBLIGATORY response (cannot be broken) is abnormal at ANY age',
-            'Persistent ATNR is a hallmark of static encephalopathy/CP',
-            'Interferes with midline hand use, feeding, and rolling',
-          ],
-        ),
-        PearlBlock(
-          'Board Pearl — ATNR',
-          'An obligatory ATNR (the infant cannot break out of the posture) is abnormal at any age and strongly suggests cerebral palsy. A non-obligatory ATNR is normal until 4-6 months.',
-        ),
-
-        HeaderBlock('Postural Reflexes'),
-        TextBlock(
-          'Postural reflexes emerge between 2 and 14 months and are incorporated into volitional motor behavior. They persist throughout life and indicate CNS maturation.',
-        ),
-        ScaleBlock(
-          scaleName: 'Postural Reflex Responses',
-          description: 'Postural reflexes that emerge as primitive reflexes integrate',
-          columns: ['Reflex', 'Stimulus', 'Emerges'],
-          rows: [
-            ['Head righting', 'Visual/vestibular', 'Prone 2 mo\nSupine 3-4 mo'],
-            ['Head & body righting', 'Tactile/proprioceptive', '4-6 months'],
-            ['Protective extension\n(parachute)', 'Gravity displacement', 'Anterior 5-7 mo\nLateral 6-8 mo\nPosterior 7-8 mo\nStanding 12-14 mo'],
-            ['Equilibrium\n(tilting)', 'Gravity displacement', 'Sitting 6-8 mo\nStanding 12-14 mo'],
-          ],
-          boardPearl: 'Protective extension (parachute) responses develop anterior first (5-7 mo), then lateral (6-8 mo), then posterior (7-8 mo), then standing (12-14 mo). Delays or absence suggest CNS immaturity or damage.',
-        ),
-      ],
-    ),
-
-    // ============ TAB 3: Developmental Milestones ============
-    TopicTab(
-      title: 'Milestones',
-      blocks: [
-        HeaderBlock('Milestones in Child Development'),
-        TextBlock(
-          'Developmental milestones are grouped into four distinct areas of function: gross motor, fine motor/adaptive, language, and personal/social behavior. Knowing key milestone ages is essential for board preparation.',
-          isIntro: true,
-        ),
-
-        HeaderBlock('Gross Motor Milestones'),
-        ScaleBlock(
-          scaleName: 'Gross Motor Development',
-          description: 'Key motor milestones by age',
-          columns: ['Age', 'Gross Motor'],
-          rows: [
-            ['Newborn', 'Flexor tone predominates, turns head in prone'],
-            ['4 months', 'Head midline, head held when pulled to sit,\nlifts head 90° in prone, rolls prone to supine'],
-            ['7 months', 'Sits independently, rolls both ways,\nbears weight on legs when held'],
-            ['10 months', 'Creeps on all fours, pulls to stand,\ncruises, stands momentarily'],
-            ['12 months', 'Walks independently (12-15 months)'],
-            ['14 months', 'Walks alone, arms in high guard,\nwide base, pelvic tilt and rotation'],
-            ['18 months', 'Runs stiffly, walks backward,\nmature heel-toe gait developing'],
-            ['2 years', 'Runs, walks up/down stairs,\njumps on both feet in place'],
-            ['3 years', 'Pedals tricycle, broad jumps,\nwalks up stairs alternating feet'],
-            ['4 years', 'Walks down stairs alternating feet,\nhops on one foot, plantar arches'],
-            ['5 years', 'Skips, tiptoes, balances 10 sec each foot'],
-          ],
-          boardPearl: 'Key milestone ages: Head control 4 mo, sits 6-7 mo, crawls 9 mo, walks 12 mo, runs 18 mo, stairs 2 yr, tricycle 3 yr, hops 4 yr, skips 5 yr.',
-        ),
-
-        HeaderBlock('Fine Motor Milestones'),
-        ScaleBlock(
-          scaleName: 'Fine Motor / Adaptive Development',
-          description: 'Grasp and manipulation milestones',
-          columns: ['Age', 'Fine Motor'],
-          rows: [
-            ['Newborn', 'Hands fisted, grasp reflex'],
-            ['4 months', 'Hands mostly open, crude palmar grasp,\nmidline hand play'],
-            ['7 months', 'Transfers cube hand to hand,\nintermediate grasp, bangs objects'],
-            ['10 months', 'Pincer grasp (thumb to index),\nbangs two cubes together'],
-            ['14 months', 'Piles two cubes, scribbles,\nholds crayon full length in palm'],
-            ['18 months', 'Crude release, emerging hand dominance'],
-            ['2 years', 'Builds 8-cube tower, hand dominance,\nimitates vertical line, aligns cubes'],
-            ['3 years', 'Imitates 3-cube bridge, copies circle,\noverhand throw'],
-            ['4 years', 'Copies cross, draws a person with\nhead and extremities, cuts with scissors'],
-            ['5 years', 'Hand dominance expected, draws person\nwith body, catches with hand'],
-          ],
-          boardPearl: 'Grasp progression: Palmar (4 mo) → raking (6 mo) → inferior pincer (8 mo) → mature pincer (10 mo). Hand dominance before 18 months may indicate contralateral hemiplegia.',
-        ),
-
-        HeaderBlock('Language Milestones'),
-        ScaleBlock(
-          scaleName: 'Speech & Language Development',
-          description: 'Receptive and expressive language milestones',
-          columns: ['Age', 'Language'],
-          rows: [
-            ['Newborn', 'Cry, state-dependent quieting'],
-            ['2 months', 'Coos, social smile'],
-            ['4 months', 'Turns to voice, laughs, squeals,\nresponsive vocalization, "raspberries"'],
-            ['7 months', 'Single-word and double-consonant\nvowel combinations (babbling)'],
-            ['10 months', 'Imitates speech sounds, "mama"/"dada"\nwith meaning, waves bye-bye'],
-            ['14 months', 'Uses single words,\nunderstands simple commands'],
-            ['18 months', 'Points to named body part,\nidentifies one picture, says "no"'],
-            ['2 years', 'Two-word phrases, uses verbs,\nrefers to self by name, follows simple directions'],
-            ['3 years', 'Three-word sentences, uses future tense,\nasks who/what/where, gives full name'],
-            ['4 years', 'Gives connected account of experience,\nuses past tense, knows opposite analogies'],
-            ['5 years', 'Fluent speech, follows 3-part commands,\ndefines concrete nouns, counts to 10'],
-          ],
-          boardPearl: 'Key language milestones: Coos 2 mo, babbles 6 mo, first words 12 mo, 2-word phrases 24 mo, 3-word sentences 36 mo. Red flag: No words by 18 months, no 2-word phrases by 24 months.',
-        ),
-
-        HeaderBlock('Developmental Red Flags'),
-        BulletCardBlock(
-          title: 'When to Refer for Evaluation',
-          themeColor: const Color(0xFFDC2626),
-          backgroundColor: const Color(0xFFFEF2F2),
-          points: [
-            'No social smile by 3 months',
-            'Not sitting independently by 9 months',
-            'Not walking by 18 months',
-            'No words by 18 months',
-            'No 2-word phrases by 24 months',
-            'Hand dominance before 18 months (suggests hemiplegia)',
-            'Persistent primitive reflexes beyond expected age',
-            'Loss of previously acquired milestones (regression)',
-          ],
-        ),
-        PearlBlock(
-          'Board Pearl — Developmental Regression',
-          'Loss of previously acquired milestones (regression) suggests a neurodegenerative process and warrants urgent evaluation. This is distinct from developmental delay (slow acquisition) or developmental plateau.',
-        ),
-      ],
-    ),
-
-    // ============ TAB 4: Cognitive & ASD ============
-    TopicTab(
-      title: 'Cognitive & ASD',
-      blocks: [
-        HeaderBlock('Cognitive Development'),
-        TextBlock(
-          'Cognitive development follows predictable stages that parallel motor and language development. Understanding cognitive stages helps in selecting appropriate therapeutic and educational approaches.',
-          isIntro: true,
-        ),
-
-        ScaleBlock(
-          scaleName: 'Piaget Cognitive Stages',
-          description: 'Stages of cognitive development',
-          columns: ['Stage', 'Age', 'Key Features'],
-          rows: [
-            ['Sensorimotor', '0-2 years', 'Reflex stage → object permanence\nCircular reactions, cause-effect\nlearning through senses and motor'],
-            ['Preoperational', '2-7 years', 'Symbolic/imaginative play\nEgocentric thinking\nLanguage development rapid\nClassification by single feature'],
-            ['Concrete\noperational', '7-11 years', 'Logical thinking about concrete\nobjects, conservation\nClassification by multiple features'],
-            ['Formal\noperational', '11+ years', 'Abstract thinking, hypothesis\ntesting, deductive reasoning'],
-          ],
-        ),
-
-        HeaderBlock('Emotional Development (Erikson)'),
-        ScaleBlock(
-          scaleName: 'Psychosocial Stages in Childhood',
-          description: 'Erikson stages relevant to pediatric rehabilitation',
-          columns: ['Age', 'Stage', 'Task'],
-          rows: [
-            ['0-1 year', 'Trust vs Mistrust', 'Basic trust through consistent\ncaregiving, attachment'],
-            ['1-3 years', 'Autonomy vs\nShame/Doubt', 'Independence in self-care,\ntoilet training, exploration'],
-            ['3-5 years', 'Initiative vs Guilt', 'Purposeful activity, imaginative\nplay, gender identity awareness'],
-            ['5-12 years', 'Industry vs\nInferiority', 'Competence in skills, school\nachievement, peer relationships'],
-          ],
-        ),
-
-        HeaderBlock('Autism Spectrum Disorder (ASD)'),
-        TextBlock(
-          'ASD is characterized by persistent deficits in social communication and interaction, and restricted, repetitive patterns of behavior, interests, or activities (DSM-5). Prevalence in the United States is approximately 1 in 36 children, affecting males more than females (approximately 4:1).',
-          isIntro: true,
-        ),
-        BulletCardBlock(
-          title: 'Core Features of ASD',
-          themeColor: const Color(0xFF6366F1),
-          backgroundColor: const Color(0xFFEEF2FF),
-          points: [
-            'Deficits in social communication: Impaired ability to engage in communication, participate in social activities, demonstrate nonverbal cues',
-            'Restricted/repetitive behaviors: Hand flapping, finger flicking, echolalia, nonsense rhyming, insistence on routines and adherence to rules',
-            'May occur with or without intellectual disability',
-            'Motor deficits common: Clumsiness, dyspraxia, gait dysfunction, toe-walking',
-            'Comorbid epilepsy is common',
-          ],
-        ),
-        BulletCardBlock(
-          title: 'ASD Screening & Diagnosis',
-          themeColor: const Color(0xFF0D9488),
-          backgroundColor: const Color(0xFFF0FDFA),
-          points: [
-            'M-CHAT-R/F: Modified Checklist for Autism in Toddlers, ages 16-30 months',
-            'AAP recommends ASD screening at 18 and 24 months',
-            'Early signs: Lack of eye contact, no pointing by 12 months, no joint attention',
-            'Diagnosis based on DSM-5 criteria: Social communication + restricted behaviors',
-            'Early intervention improves outcomes significantly',
-          ],
-        ),
-        PearlBlock(
-          'Board Pearl — ASD',
-          'ASD prevalence is approximately 1 in 36 children. Males are affected approximately 4 times more than females. Early signs include lack of joint attention, no pointing by 12 months, and no social smile responsiveness.',
-        ),
-
-        HeaderBlock('Developmental Screening Tools'),
         TableBlock(
-          title: 'Common Screening & Assessment Tools',
-          columns: ['Tool', 'Ages', 'Type'],
+          title: 'Primitive Reflexes — Emergence & Integration',
+          columns: ['Reflex', 'Emergence', 'Integration', 'If Persistent'],
           rows: [
-            ['Denver II', '0-6 years', 'Screening (4 domains)'],
-            ['ASQ-3', '1-66 months', 'Parent questionnaire screening'],
-            ['Bayley-4', '1-42 months', 'Gold standard diagnostic'],
-            ['M-CHAT-R/F', '16-30 months', 'ASD screening'],
-            ['BINS', '3-24 months', 'Neurodevelopmental screening'],
+            ['Moro', 'Birth (28 wk GA)', '3-6 months', 'UMN lesion, CP; asymmetry = BPI or clavicle fx'],
+            ['Palmar grasp', 'Birth (28 wk GA)', '4-6 months', 'Must integrate for voluntary grasp; UMN lesion'],
+            ['Plantar grasp', 'Birth (28 wk GA)', '9-12 months', 'Must integrate for independent standing'],
+            ['Rooting', 'Birth (28 wk GA)', '3-4 months (awake)', 'Frontal lobe lesion'],
+            ['ATNR', 'Birth-2 weeks', '4-6 months', 'Interferes with midline hand function and rolling'],
+            ['STNR', '4-6 months', '8-12 months', 'Interferes with hands-and-knees crawling'],
+            ['TLR', 'Birth', '6 months', 'CP; vestibular dysfunction'],
+            ['Galant (trunk incurvation)', 'Birth', '2-6 months', 'Can interfere with sitting'],
+            ['Stepping/walking', 'Birth', '2-3 months', 'Reappears as voluntary walking ~12 months'],
+            ['Positive support', 'Birth', '2-4 months', 'Persistent in CP'],
+            ['Landau', '3-4 months (emerges)', '12-24 months', 'Absent in hypotonic/floppy infants'],
+          ],
+          headerColor: const Color(0xFFDC2626),
+        ),
+        PearlBlock(
+          'Board Pearl — Obligatory ATNR',
+          'An obligatory ATNR (the infant is locked in the "fencer" posture for >30 seconds and cannot break free) is ALWAYS pathological at ANY age. A non-obligatory ATNR (transient posturing the infant can override) is normal until 4-6 months.',
+        ),
+        PearlBlock(
+          'Board Pearl — STNR',
+          'The STNR is unique because it EMERGES at 4-6 months (not at birth). It must integrate by 8-12 months to allow reciprocal crawling. STNR causes arm extension with head extension and arm flexion with head flexion -- the OPPOSITE of what is needed for crawling.',
+        ),
+        PearlBlock(
+          'Board Pearl — Plantar vs Palmar Grasp',
+          'Plantar grasp integrates LAST (9-12 months) -- much later than palmar grasp (4-6 months). This is a commonly tested distinction.',
+        ),
+
+        HeaderBlock('Postural Reactions'),
+        TextBlock(
+          'Postural reactions emerge later in infancy and PERSIST throughout life. They require cortical and cerebellar integration and reflect higher neurological maturation than primitive reflexes.',
+        ),
+        TableBlock(
+          title: 'Postural Reactions — Emergence',
+          columns: ['Reaction', 'Emergence', 'Significance'],
+          rows: [
+            ['Parachute (anterior)', '6-9 months', 'PERSISTS for life; asymmetry = hemiparesis'],
+            ['Lateral protective', '6-8 months', 'Persists for life; absence = impaired sitting balance'],
+            ['Posterior protective', '9-12 months', 'Persists for life; absence = impaired sitting balance'],
+            ['Equilibrium (prone)', '~6 months', 'Balance response'],
+            ['Equilibrium (sitting)', '~7-8 months', 'Balance response'],
+            ['Equilibrium (standing)', '~12-15 months', 'Balance response'],
+          ],
+          headerColor: const Color(0xFF0D9488),
+        ),
+        PearlBlock(
+          'Board Pearl — Parachute Reflex',
+          'The parachute reflex (anterior protective extension) emerges at 6-9 months and does NOT integrate -- it persists throughout life. ASYMMETRY of the parachute reflex is a clinical clue to hemiplegia.',
+        ),
+      ],
+    ),
+
+    // ============ TAB 4: Screening Tools ============
+    TopicTab(
+      title: 'Screening Tools',
+      blocks: [
+        HeaderBlock('Developmental Screening Tools'),
+        TextBlock(
+          'The distinction between screening and diagnostic instruments is fundamental for board preparation. Screening tools identify children who need further evaluation; diagnostic tools quantify developmental level.',
+          isIntro: true,
+        ),
+        TableBlock(
+          title: 'Screening & Diagnostic Instruments',
+          columns: ['Tool', 'Type', 'Ages', 'Key Features'],
+          rows: [
+            ['Denver II', 'Screening', 'Birth-6 yrs', '125 items; clinician-administered; 4 domains\nSens 56-83% / Spec 43-80%'],
+            ['ASQ-3', 'Screening', '1-66 months', 'Parent-completed; 5 domains; 21 forms\nSens 70-90% / Spec 76-91%'],
+            ['Bayley-4', 'Diagnostic (gold standard)', '1-42 months', 'Clinician-administered; 5 domains\nComposite Mean=100, SD=15'],
+            ['BINS', 'Screening', '3-24 months', '6 item sets; 10-15 min; low/mod/high risk'],
+            ['PEDS', 'Screening', '0-8 years', '10-item parent interview\nSens 74-79% / Spec 70-80%'],
+            ['M-CHAT-R/F', 'ASD Screening', '16-30 months', '20 items; parent-report\nSens 85-92% / Spec w/ F/U 95-99%'],
           ],
           headerColor: const Color(0xFF06B6D4),
         ),
         PearlBlock(
           'Board Pearl — Denver II vs Bayley',
-          'Denver II is a SCREENING tool (identifies children who need further evaluation). Bayley Scales is the gold standard DIAGNOSTIC developmental assessment for infants 1-42 months. Screening tools are not diagnostic.',
+          'Denver II is a SCREENING tool; Bayley is a DIAGNOSTIC tool. This distinction is a classic board question. The Denver II does NOT generate a developmental quotient. The Bayley is the gold standard for quantifying developmental level in infants and toddlers.',
+        ),
+        PearlBlock(
+          'Board Pearl — ASQ-3',
+          'The ASQ-3 has largely supplanted the Denver II in many clinical settings because it can be parent-completed, has better psychometric properties, and is more time-efficient. It generates scores in a "monitoring zone" between clear pass and clear referral.',
+        ),
+        BulletCardBlock(
+          title: 'Denver II Interpretation',
+          themeColor: const Color(0xFF06B6D4),
+          backgroundColor: const Color(0xFFECFEFF),
+          points: [
+            'Normal: No delays, maximum 1 caution',
+            'Suspect: 1+ delays and/or 2+ cautions',
+            'Untestable: Too many refusals',
+            '"Caution" = failure on item at the 75-90th percentile line',
+            '"Delay" = failure on item entirely to the LEFT of the age line (>90th percentile should have achieved)',
+          ],
+        ),
+        BulletCardBlock(
+          title: 'AAP Recommended Screening Schedule',
+          themeColor: const Color(0xFF3B82F6),
+          backgroundColor: const Color(0xFFEFF6FF),
+          points: [
+            'Developmental surveillance: EVERY well-child visit',
+            'Standardized developmental screening: 9, 18, and 30 months',
+            'ASD-specific screening: 18 and 24 months',
+          ],
+        ),
+        BulletCardBlock(
+          title: 'Developmental Quotient (DQ)',
+          themeColor: const Color(0xFF8B5CF6),
+          backgroundColor: const Color(0xFFF5F3FF),
+          points: [
+            'DQ = (developmental age / chronological age) x 100',
+            'DQ <70 is roughly equivalent to >2 SD below mean',
+            'Use CORRECTED age for denominator in premature infants',
+          ],
+        ),
+      ],
+    ),
+
+    // ============ TAB 5: Red Flags & ASD ============
+    TopicTab(
+      title: 'Red Flags & ASD',
+      blocks: [
+        HeaderBlock('Developmental Red Flags'),
+        TextBlock(
+          'Red flags for developmental delay warrant urgent evaluation and referral. Loss of previously acquired skills (regression) is always a red flag that demands urgent evaluation.',
+          isIntro: true,
+        ),
+        BulletCardBlock(
+          title: 'Motor Red Flags',
+          themeColor: const Color(0xFFDC2626),
+          backgroundColor: const Color(0xFFFEF2F2),
+          points: [
+            'No head control by 4 months',
+            'Not sitting independently by 9 months',
+            'Not pulling to stand by 12 months',
+            'Not walking by 18 months',
+            'Not running by 24 months',
+            'Persistent fisting of hands beyond 3 months',
+            'Persistent head lag beyond 4 months',
+            'Hand preference BEFORE 18 months (suggests contralateral hemiparesis)',
+            'Persistent toe walking beyond 3 years',
+            'Regression of motor milestones at any age',
+          ],
+        ),
+        PearlBlock(
+          'Board Pearl — Hand Preference',
+          'Hand preference before 18 months is a CLASSIC board question. Early hand dominance should raise concern for contralateral hemiplegia (hemiplegic CP or perinatal stroke). Typical hand dominance does not establish until age 2-3 years.',
+        ),
+        BulletCardBlock(
+          title: 'Language Red Flags',
+          themeColor: const Color(0xFFF97316),
+          backgroundColor: const Color(0xFFFFF7ED),
+          points: [
+            'No babbling by 12 months',
+            'No single words by 16 months',
+            'No 2-word phrases by 24 months',
+            'No pointing or gestures by 12 months',
+            'Any loss of language at any age',
+            'Not following simple commands by 18 months',
+            'Not 50% intelligible by 2 years',
+            'Not 75% intelligible by 3 years',
+            'Not 100% intelligible by 4 years',
+          ],
+        ),
+        PearlBlock(
+          'Board Pearl — Regression',
+          'Developmental regression (loss of previously acquired skills) is ALWAYS a red flag demanding urgent evaluation. Differential includes neurodegenerative disease, Rett syndrome, ASD regression (~25-30% of ASD), Landau-Kleffner syndrome, seizure disorder, metabolic disease.',
+        ),
+
+        HeaderBlock('Autism Spectrum Disorder (ASD)'),
+        BulletCardBlock(
+          title: 'ASD Epidemiology',
+          themeColor: const Color(0xFF6366F1),
+          backgroundColor: const Color(0xFFEEF2FF),
+          points: [
+            'Prevalence: 1 in 36 children (2.8%) per CDC ADDM 2020 data',
+            'Male:Female ratio approximately 3.8:1 (trending lower as female recognition improves)',
+            'Median age of diagnosis: ~4.5 years (goal is before age 3)',
+            'Co-occurring intellectual disability: 31-38%',
+          ],
+        ),
+        BulletCardBlock(
+          title: 'ASD Red Flags (Under 2 Years)',
+          themeColor: const Color(0xFFDC2626),
+          backgroundColor: const Color(0xFFFEF2F2),
+          points: [
+            'No social smile by 2 months',
+            'Poor eye contact',
+            'No babbling by 12 months',
+            'No gestures (pointing, waving) by 12 months',
+            'No single words by 16 months',
+            'No 2-word spontaneous phrases by 24 months',
+            'Any loss of language or social skills at any age',
+            'No response to name by 12 months',
+            'No shared enjoyment / joint attention by 14 months',
+            'Lack of pretend play by 18 months',
+          ],
+        ),
+        BulletCardBlock(
+          title: 'M-CHAT-R/F Scoring',
+          themeColor: const Color(0xFF0D9488),
+          backgroundColor: const Color(0xFFF0FDFA),
+          points: [
+            '20-item parent-report questionnaire; ages 16-30 months',
+            'Low risk (0-2): No action needed',
+            'Medium risk (3-7): Administer Follow-Up interview',
+            'High risk (8-20): Refer immediately',
+            'Follow-Up interview reduces false-positive rate substantially',
+            'PPV with Follow-Up: 47.5% for ASD; 94.6% for any developmental concern',
+          ],
+        ),
+        HeaderBlock('DSM-5 Diagnostic Criteria for ASD'),
+        BulletCardBlock(
+          title: 'Criterion A — Social Communication (ALL 3 Required)',
+          themeColor: const Color(0xFF7C3AED),
+          backgroundColor: const Color(0xFFF5F3FF),
+          points: [
+            '1. Deficits in social-emotional reciprocity',
+            '2. Deficits in nonverbal communicative behaviors',
+            '3. Deficits in developing, maintaining, and understanding relationships',
+          ],
+        ),
+        BulletCardBlock(
+          title: 'Criterion B — Restricted/Repetitive Behaviors (At Least 2 of 4)',
+          themeColor: const Color(0xFF8B5CF6),
+          backgroundColor: const Color(0xFFF5F3FF),
+          points: [
+            '1. Stereotyped or repetitive motor movements, use of objects, or speech',
+            '2. Insistence on sameness, inflexible adherence to routines',
+            '3. Highly restricted, fixated interests abnormal in intensity or focus',
+            '4. Hyper- or hypo-reactivity to sensory input (new in DSM-5)',
+          ],
+        ),
+        TableBlock(
+          title: 'ASD Severity Levels',
+          columns: ['Level', 'Support Needed'],
+          rows: [
+            ['Level 1', 'Requiring support'],
+            ['Level 2', 'Requiring substantial support'],
+            ['Level 3', 'Requiring very substantial support'],
+          ],
+          headerColor: const Color(0xFF6366F1),
+        ),
+        PearlBlock(
+          'Board Pearl — DSM-5 ASD Changes',
+          'Key DSM-5 changes: Asperger, PDD-NOS, and autistic disorder were MERGED into a single ASD diagnosis. Criteria went from 3 domains to 2 (social communication combined, and RRB). Sensory processing symptoms were ADDED. A new diagnosis, Social (Pragmatic) Communication Disorder, was created for those with social communication deficits WITHOUT restricted/repetitive behaviors.',
+        ),
+        PearlBlock(
+          'Board Pearl — ASD Criteria',
+          'For ASD diagnosis: ALL 3 social communication criteria required PLUS at least 2 of 4 RRB criteria. Social Communication Disorder CANNOT be diagnosed if full ASD criteria are met.',
+        ),
+      ],
+    ),
+
+    // ============ TAB 6: IDEA & Definitions ============
+    TopicTab(
+      title: 'IDEA & Definitions',
+      blocks: [
+        HeaderBlock('IDEA: Part C vs Part B'),
+        TextBlock(
+          'The Individuals with Disabilities Education Act (IDEA) is the federal law governing special education and early intervention services for children with disabilities.',
+          isIntro: true,
+        ),
+        TableBlock(
+          title: 'IDEA Part C vs Part B',
+          columns: ['Feature', 'Part C (Early Intervention)', 'Part B (Special Education)'],
+          rows: [
+            ['Ages', 'Birth to 3 years', '3-21 years'],
+            ['Service plan', 'IFSP', 'IEP'],
+            ['Focus', 'FAMILY-centered', 'CHILD/student-centered'],
+            ['Setting', 'Natural environments (home, daycare)', 'School-based; Least Restrictive Environment'],
+            ['Eligibility', '>25% delay or >1.5-2 SD in 1+ domain, OR established condition', '1 of 13 disability categories'],
+            ['Cost', 'Free to families', 'Free Appropriate Public Education (FAPE)'],
+            ['Transition', 'At age 3, transition to Part B', 'Continues through age 21'],
+          ],
+          headerColor: const Color(0xFF3B82F6),
+        ),
+        PearlBlock(
+          'Board Pearl — IFSP vs IEP',
+          'The IFSP vs IEP distinction is a board favorite. IFSP is FAMILY-centered (birth-3, Part C, natural environments). IEP is CHILD-centered (3-21, Part B, school-based). Know this cold.',
+        ),
+        BulletCardBlock(
+          title: 'Part C Services',
+          themeColor: const Color(0xFF3B82F6),
+          backgroundColor: const Color(0xFFEFF6FF),
+          points: [
+            'PT, OT, speech-language pathology',
+            'Special instruction, audiology, vision services',
+            'Psychology, social work',
+            'Assistive technology, service coordination',
+          ],
+        ),
+        BulletCardBlock(
+          title: 'Part B Key Principles',
+          themeColor: const Color(0xFF0D9488),
+          backgroundColor: const Color(0xFFF0FDFA),
+          points: [
+            'Free Appropriate Public Education (FAPE)',
+            'Least Restrictive Environment (LRE): Educate with non-disabled peers to maximum extent',
+            '13 disability categories for eligibility',
+            'Related services: PT, OT, SLP, transportation, counseling',
+            'Section 504: Alternative for students who do not qualify for IEP but need accommodations',
+            'Child Find Mandate: States must identify ALL children with disabilities birth through 21',
+          ],
+        ),
+
+        HeaderBlock('Key Developmental Definitions'),
+        BulletCardBlock(
+          title: 'Terminology',
+          themeColor: const Color(0xFF8B5CF6),
+          backgroundColor: const Color(0xFFF5F3FF),
+          points: [
+            'Developmental delay: >25% delay or >1.5-2 SD below mean in 1+ domain; implies potential for catch-up',
+            'Global developmental delay (GDD): Reserved for children UNDER 5 years; >2 SD below mean in 2+ domains',
+            'Intellectual disability (DSM-5): Deficits in BOTH intellectual functions AND adaptive functioning; severity classified by ADAPTIVE FUNCTIONING, not IQ',
+            'Developmental disability: More permanent condition; generally used after age 5-7 years',
+            'Developmental dissociation: Markedly different rates across domains (e.g., normal motor, delayed language in ASD)',
+            'Developmental deviance: Skills acquired in non-sequential order',
+          ],
+        ),
+        PearlBlock(
+          'Board Pearl — Adaptive Functioning',
+          'In DSM-5, the severity of intellectual disability is classified by ADAPTIVE FUNCTIONING, not IQ score. This was a significant change from previous editions. Vineland Adaptive Behavior Scales and ABAS-3 are commonly used measures.',
+        ),
+        TableBlock(
+          title: 'Intellectual Disability Severity',
+          columns: ['Severity', 'Historical IQ Range', 'Adaptive Support Level'],
+          rows: [
+            ['Mild', '50-70', 'Intermittent support'],
+            ['Moderate', '35-50', 'Limited support'],
+            ['Severe', '20-35', 'Extensive support'],
+            ['Profound', '<20', 'Pervasive support'],
+          ],
+          headerColor: const Color(0xFF8B5CF6),
+        ),
+        PearlBlock(
+          'Board Pearl — Corrected Age',
+          'Corrected age = chronological age minus weeks of prematurity. Always use corrected age for developmental assessment of preterm infants until at least 2 years. Example: A 12-month-old born at 28 weeks (12 weeks early) has a corrected age of 9 months.',
+        ),
+        PearlBlock(
+          'Board Pearl — Prematurity Risk',
+          'Extremely preterm (<28 weeks): 25-50% have significant neurodevelopmental impairment. Very preterm (28-32 weeks): 10-25% significant impairment. Late preterm (34-36 weeks): Increased risk but majority develop normally.',
         ),
       ],
     ),
