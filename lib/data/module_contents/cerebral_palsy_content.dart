@@ -225,6 +225,38 @@ final cerebralPalsyContent = TopicData(
               'Most tested distinction: Level II vs III. Level II walks independently (no device) but with limitations. Level III uses a hand-held device. This is the "device" dividing line.',
         ),
 
+        DiagramBlock(
+          title: 'GMFCS Levels at a Glance',
+          themeColor: const Color(0xFF14B8A6),
+          regions: [
+            DiagramRegion(
+              label: 'Level I',
+              detail: 'Walks without limitations; limitations only in advanced motor skills such as running and jumping',
+              icon: Icons.directions_walk,
+            ),
+            DiagramRegion(
+              label: 'Level II',
+              detail: 'Walks without assistive device but with limitations on uneven surfaces, inclines, and long distances',
+              icon: Icons.directions_walk,
+            ),
+            DiagramRegion(
+              label: 'Level III',
+              detail: 'Walks with hand-held assistive device (walker/crutches) indoors; wheelchair for community mobility',
+              icon: Icons.accessible,
+            ),
+            DiagramRegion(
+              label: 'Level IV',
+              detail: 'Self-mobility with limitations; primarily uses wheelchair; may stand for transfers with support',
+              icon: Icons.wheelchair_pickup,
+            ),
+            DiagramRegion(
+              label: 'Level V',
+              detail: 'Transported in manual wheelchair; severely limited antigravity head and trunk control; fully dependent',
+              icon: Icons.wheelchair_pickup,
+            ),
+          ],
+        ),
+
         HeaderBlock('GMFCS Distribution & Motor Curves'),
         BulletCardBlock(
           title: 'Population Distribution',
@@ -424,6 +456,41 @@ final cerebralPalsyContent = TopicData(
           ],
           boardPearl:
               'Management progresses from least invasive (positioning/stretching) to most invasive (orthopedic surgery). Know the indications, MOA, and side effects of each level.',
+        ),
+
+        FlowchartBlock(
+          title: 'Spasticity Management Algorithm',
+          themeColor: const Color(0xFF14B8A6),
+          nodes: [
+            FlowchartNode(
+              label: 'Stretching / ROM / Positioning',
+              detail: 'First-line conservative management: daily stretching, serial casting, orthotics, and adaptive seating',
+            ),
+            FlowchartNode(
+              label: 'Oral Medications',
+              detail: 'Baclofen (GABA-B), diazepam (GABA-A), dantrolene (peripheral), tizanidine (alpha-2)',
+              isDecision: true,
+              branches: ['Generalized spasticity'],
+            ),
+            FlowchartNode(
+              label: 'BoNT-A Injections',
+              detail: 'Botulinum toxin for focal spasticity; onset 24-72 hrs, peak 2-6 wks, duration 3-6 months',
+              isDecision: true,
+              branches: ['Focal spasticity (1-2 muscle groups)'],
+            ),
+            FlowchartNode(
+              label: 'Intrathecal Baclofen Pump',
+              detail: 'Programmable pump delivering baclofen to CSF; 100-1000x concentration with 1/100th oral dose; best for GMFCS IV-V',
+            ),
+            FlowchartNode(
+              label: 'Selective Dorsal Rhizotomy',
+              detail: 'Irreversible selective cutting of dorsal rootlets L1-S2; strict candidacy: spastic diplegia, GMFCS II-III, age 4-8, good selective motor control',
+            ),
+            FlowchartNode(
+              label: 'Orthopedic Surgery',
+              detail: 'SEMLS (single-event multilevel surgery), tendon releases, transfers, osteotomies, and fusions for fixed deformities',
+            ),
+          ],
         ),
 
         HeaderBlock('Oral Antispasticity Medications'),

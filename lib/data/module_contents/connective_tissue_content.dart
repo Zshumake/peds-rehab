@@ -198,6 +198,37 @@ final connectiveTissueContent = TopicData(
           'TNF inhibitors are first-line biologics for non-systemic JIA, but NOT for systemic JIA. For sJIA, IL-1 inhibitors (anakinra, canakinumab) or IL-6 inhibitors (tocilizumab) are preferred because sJIA is driven by innate immunity and the inflammasome, not by adaptive immune TNF pathways.',
         ),
 
+        FlowchartBlock(
+          title: 'JIA Treatment Escalation',
+          themeColor: const Color(0xFF8B5CF6),
+          nodes: [
+            FlowchartNode(
+              label: 'NSAIDs + Physical Therapy',
+              detail: 'First-line for all non-systemic JIA. Naproxen 10-20 mg/kg/day BID. Intra-articular triamcinolone hexacetonide. Trial for 4-6 weeks.',
+            ),
+            FlowchartNode(
+              label: 'csDMARDs (Methotrexate first-line)',
+              detail: 'Methotrexate 10-15 mg/m2/week (oral or subcutaneous). Leflunomide or sulfasalazine as alternatives. Allow 6-12 weeks for full effect.',
+              isDecision: true,
+              branches: ['Adequate response at 3 months?'],
+            ),
+            FlowchartNode(
+              label: 'bDMARDs (TNF inhibitors)',
+              detail: 'Etanercept or adalimumab first-line biologics for non-systemic JIA. For sJIA, use IL-1 (anakinra, canakinumab) or IL-6 (tocilizumab) inhibitors instead.',
+              isDecision: true,
+              branches: ['Adequate response?'],
+            ),
+            FlowchartNode(
+              label: 'Alternative biologics (IL-6, JAK inhibitors)',
+              detail: 'Tocilizumab (IL-6 receptor blockade) or tofacitinib (JAK1/3 oral small molecule). Abatacept (T-cell co-stimulation blockade) is another option.',
+            ),
+            FlowchartNode(
+              label: 'Combination therapy',
+              detail: 'Refractory disease may require combination of biologic DMARD + conventional DMARD + intra-articular injections. Multidisciplinary team approach essential.',
+            ),
+          ],
+        ),
+
         HeaderBlock('FDA-Approved Biologics for JIA'),
         TableBlock(
           title: 'Biologic Agents Approved for JIA',

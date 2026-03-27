@@ -337,6 +337,43 @@ final spinaBifidaContent = TopicData(
           ],
           headerColor: const Color(0xFF7C3AED),
         ),
+        DiagramBlock(
+          title: 'Spinal Motor Levels \u2192 Function',
+          themeColor: const Color(0xFF7C3AED),
+          crossAxisCount: 3,
+          regions: [
+            DiagramRegion(
+              label: 'T12',
+              detail: 'No LE muscle function; wheelchair dependent; parapodium or RGO for therapeutic standing only',
+              icon: Icons.wheelchair_pickup,
+            ),
+            DiagramRegion(
+              label: 'L1-L2',
+              detail: 'Hip flexors (iliopsoas); HKAFO/RGO; household ambulation in childhood, wheelchair by adulthood',
+              icon: Icons.wheelchair_pickup,
+            ),
+            DiagramRegion(
+              label: 'L3',
+              detail: 'Quadriceps (knee extension); KAFOs with crutches; 50/50 community vs wheelchair by adulthood',
+              icon: Icons.accessible,
+            ),
+            DiagramRegion(
+              label: 'L4',
+              detail: 'Tibialis anterior (dorsiflexion); AFOs; community ambulation expected; critical board-tested level',
+              icon: Icons.directions_walk,
+            ),
+            DiagramRegion(
+              label: 'L5',
+              detail: 'Hip abductors and peroneals; AFOs; community ambulation with Trendelenburg gait',
+              icon: Icons.directions_walk,
+            ),
+            DiagramRegion(
+              label: 'S1-S2',
+              detail: 'Plantarflexion (gastrocnemius); shoe insert or no orthosis; near-normal ambulation',
+              icon: Icons.directions_walk,
+            ),
+          ],
+        ),
         PearlBlock(
           'Board Pearl — Level-Muscle Associations',
           'L3 = quadriceps (knee extension). L4 = tibialis anterior (dorsiflexion). L5 = peroneal/lateral hamstrings. S1 = gastrocnemius (plantarflexion). L4 is the critical board-tested level: tibialis anterior gives dorsiflexion = AFO = community ambulation.',

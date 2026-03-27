@@ -384,9 +384,9 @@ class HomeScreen extends StatelessWidget {
             sliver: SliverGrid(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 14,
-                crossAxisSpacing: 14,
-                childAspectRatio: 0.85,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 0.92,
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
@@ -399,7 +399,7 @@ class HomeScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              ModuleContentScreen(module: module),
+                              ModuleContentScreen(module: module, moduleIndex: index),
                         ),
                       );
                     },

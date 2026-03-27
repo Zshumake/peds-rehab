@@ -48,6 +48,68 @@ final neuromuscularDiseasesContent = TopicData(
           'Gower sign: Child climbs up own legs to stand (proximal hip/knee extensor weakness). Classic for DMD but NOT specific — also seen in SMA type III, LGMD, and inflammatory myopathies. Typically evident by age 3-5 years. Calf pseudohypertrophy = fat and connective tissue (NOT actual muscle hypertrophy).',
         ),
 
+        TimelineBlock(
+          title: 'DMD Disease Progression',
+          events: [
+            TimelineEvent(
+              time: 'Birth',
+              label: 'Normal CK screening',
+              detail: 'CK is markedly elevated from birth (10,000-50,000+ IU/L) even before symptoms appear. Newborn screening can detect elevated CK.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.child_friendly_rounded,
+            ),
+            TimelineEvent(
+              time: '2-3 yr',
+              label: 'Gower sign, toe walking',
+              detail: 'Proximal weakness becomes clinically apparent. Calf pseudohypertrophy develops. Delayed walking (15-18 months) may have been the first sign.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.directions_walk_rounded,
+            ),
+            TimelineEvent(
+              time: '5-6 yr',
+              label: 'Corticosteroids started',
+              detail: 'Initiated at motor function plateau (age 4-6). Prednisone 0.75 mg/kg/day or deflazacort 0.9 mg/kg/day. Prolongs ambulation by 2-5 years.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.medication_rounded,
+            ),
+            TimelineEvent(
+              time: '9-12 yr',
+              label: 'Loss of ambulation',
+              detail: 'Wheelchair dependence when knee extensors fall below 3/5 or 30-ft walk exceeds 12 seconds. Power wheelchair prescription is essential.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.accessible_rounded,
+            ),
+            TimelineEvent(
+              time: '12-15 yr',
+              label: 'Scoliosis surgery window',
+              detail: 'Neuromuscular scoliosis develops in >90%. Spinal fusion when Cobb angle >20-25 degrees. FVC must be >30-40% for acceptable surgical risk.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.airline_seat_recline_normal_rounded,
+            ),
+            TimelineEvent(
+              time: '15-18 yr',
+              label: 'Nocturnal ventilation',
+              detail: 'FVC declines 5-8% per year after peak at age 12-14. Nocturnal NIV initiated when FVC <50%, MIP <60 cmH2O, or SpO2 <95%.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.nights_stay_rounded,
+            ),
+            TimelineEvent(
+              time: '20s',
+              label: '24hr ventilation',
+              detail: 'Progressive respiratory decline requires continuous ventilatory support. Tracheostomy vs continued NIV is an individualized decision.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.air_rounded,
+            ),
+            TimelineEvent(
+              time: 'Late 20s',
+              label: 'Cardiac/respiratory failure',
+              detail: 'Median survival ~28 years (born after 1990). Cardiomyopathy present in nearly all by age 18. Respiratory and cardiac failure are leading causes of death.',
+              color: const Color(0xFFD946EF),
+              icon: Icons.monitor_heart_rounded,
+            ),
+          ],
+        ),
+
         HeaderBlock('Diagnostics'),
         BulletCardBlock(
           title: 'Diagnostic Workup',
@@ -310,6 +372,37 @@ final neuromuscularDiseasesContent = TopicData(
             'Identifies ~95% of cases (misses point mutations)',
             'NURTURE trial (presymptomatic treatment): Majority achieved sitting and walking milestones',
             'Presymptomatic treatment = near-normal motor development possible',
+          ],
+        ),
+
+        DiagramBlock(
+          title: 'SMA Types: Motor Milestone Ceiling',
+          themeColor: const Color(0xFFD946EF),
+          regions: [
+            DiagramRegion(
+              label: 'Type 0',
+              detail: 'No motor milestones achieved. Prenatal onset with minimal movement. 1 SMN2 copy. Death before 6 months. Extremely rare.',
+              icon: Icons.dangerous_rounded,
+              color: const Color(0xFFDC2626),
+            ),
+            DiagramRegion(
+              label: 'Type I (Werdnig-Hoffmann)',
+              detail: 'Never sits independently. 1-2 SMN2 copies. Death before age 2 without treatment. Nusinersen, Zolgensma, and risdiplam have transformed outcomes when given presymptomatically.',
+              icon: Icons.child_friendly_rounded,
+              color: const Color(0xFFF97316),
+            ),
+            DiagramRegion(
+              label: 'Type II (Dubowitz)',
+              detail: 'Sits independently but never walks. 2-3 SMN2 copies. Survival ~70% to age 25 untreated. Progressive scoliosis nearly universal. All three FDA-approved therapies applicable.',
+              icon: Icons.event_seat_rounded,
+              color: const Color(0xFFEAB308),
+            ),
+            DiagramRegion(
+              label: 'Type III (Kugelberg-Welander)',
+              detail: 'Walks independently, then gradually loses ability. 3-4 SMN2 copies. Normal lifespan. Gower sign present (mimics DMD). CK mildly elevated.',
+              icon: Icons.directions_walk_rounded,
+              color: const Color(0xFF22C55E),
+            ),
           ],
         ),
 

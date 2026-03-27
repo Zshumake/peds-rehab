@@ -90,6 +90,53 @@ final bonesJointsContent = TopicData(
           'Positive findings on Barlow/Ortolani should be confirmed by imaging and should NOT be repeated over and over. These tests are now done under ultrasound observation to avoid missing bilateral dislocations.',
         ),
 
+        FlowchartBlock(
+          title: 'DDH Workup Algorithm',
+          themeColor: const Color(0xFFF97066),
+          nodes: [
+            FlowchartNode(
+              label: 'Clinical Suspicion',
+              detail: 'Risk factors (breech, female, family history) or abnormal Barlow/Ortolani exam findings',
+              isDecision: true,
+              branches: ['Positive exam or risk factors present'],
+            ),
+            FlowchartNode(
+              label: 'Ultrasound (<6 months)',
+              detail: 'Preferred imaging when femoral head is cartilaginous; Graf classification for morphology',
+              isDecision: true,
+              branches: ['Age <6 months'],
+            ),
+            FlowchartNode(
+              label: 'X-ray (>6 months)',
+              detail: 'AP pelvis radiograph when ossific nucleus is visible; assess Shenton line and acetabular index',
+              isDecision: true,
+              branches: ['Age >6 months'],
+            ),
+            FlowchartNode(
+              label: 'Graf Type I \u2014 Normal',
+              detail: 'Alpha angle >60 degrees; no treatment needed; routine follow-up and observation',
+            ),
+            FlowchartNode(
+              label: 'Graf Type IIc-IV \u2014 Abnormal',
+              detail: 'Significant dysplasia, subluxation, or dislocation requiring intervention',
+              isDecision: true,
+              branches: ['Abnormal morphology confirmed'],
+            ),
+            FlowchartNode(
+              label: 'Pavlik Harness',
+              detail: 'First-line for age <6 months with Graf Type IIc-III; 85-95% success rate; positions hip in flexion and abduction',
+            ),
+            FlowchartNode(
+              label: 'Closed Reduction',
+              detail: 'If Pavlik harness fails after 3-4 weeks or late presentation at 6-18 months; performed under anesthesia with hip spica casting',
+            ),
+            FlowchartNode(
+              label: 'Open Reduction + Osteotomy',
+              detail: 'Reserved for age >18 months or failed closed reduction; may include pelvic and/or femoral osteotomy',
+            ),
+          ],
+        ),
+
         HeaderBlock('DDH Imaging'),
         BulletCardBlock(
           title: 'Imaging Modalities',

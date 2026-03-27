@@ -46,6 +46,69 @@ final developmentGrowthContent = TopicData(
           'Board Pearl — Key Milestones Summary',
           'Head control 4 mo, sits 6-7 mo, crawls 9 mo, walks 12 mo, runs 18 mo, stairs 2 yr, tricycle 3 yr, hops 4 yr, skips 5 yr.',
         ),
+        ImageBlock(
+          'assets/images/module-02-development/milestones-0-12mo.png',
+          caption: 'Gross motor milestones: newborn to 12 months',
+        ),
+        TimelineBlock(
+          title: 'Motor Milestone Timeline',
+          events: [
+            TimelineEvent(
+              time: 'Birth',
+              label: 'Lifts head in prone',
+              detail: 'Antigravity head control begins; physiologic flexion predominates',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '4 months',
+              label: 'Head control',
+              detail: 'No head lag on pull-to-sit; props on extended arms',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '6 months',
+              label: 'Sits independently',
+              detail: 'Tripod sitting progresses to unsupported sitting; rolls both directions',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '9 months',
+              label: 'Crawls',
+              detail: 'Reciprocal hands-and-knees crawling; pulls to stand beginning',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '10 months',
+              label: 'Pulls to stand',
+              detail: 'Cruises along furniture; upright posture emerging',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '12 months',
+              label: 'Walks independently',
+              detail: 'Wide-based gait with arms in high guard; range 9-15 months',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '18 months',
+              label: 'Runs',
+              detail: 'Stiff-legged running; walks upstairs with hand held (marking time)',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '24 months',
+              label: 'Walks up stairs',
+              detail: 'Walks up and down stairs marking time; runs well; jumps with both feet',
+              color: const Color(0xFFF97066),
+            ),
+            TimelineEvent(
+              time: '36 months',
+              label: 'Rides tricycle',
+              detail: 'Alternates feet going upstairs; stands on one foot 1-2 seconds',
+              color: const Color(0xFFF97066),
+            ),
+          ],
+        ),
       ],
     ),
 
@@ -205,6 +268,10 @@ final developmentGrowthContent = TopicData(
             ['Landau', '3-4 months (emerges)', '12-24 months', 'Absent in hypotonic/floppy infants'],
           ],
           headerColor: const Color(0xFFDC2626),
+        ),
+        ImageBlock(
+          'assets/images/module-02-development/primitive-reflexes.png',
+          caption: 'Key primitive reflexes and their integration ages',
         ),
         PearlBlock(
           'Board Pearl — Obligatory ATNR',

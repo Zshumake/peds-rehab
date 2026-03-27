@@ -179,6 +179,26 @@ final pediatricNeurotraumaContent = TopicData(
           'Board Pearl -- PECARN Age Differences',
           'PECARN fall height thresholds differ by age: >3 feet for children <2 years, >5 feet for those >=2 years. Scalp hematoma location matters only in the younger group (non-frontal = higher risk). Basilar skull fracture signs are used exclusively in the older group. This distinction is commonly tested.',
         ),
+
+        DiagramBlock(
+          title: 'PECARN Decision Rules',
+          themeColor: const Color(0xFF0EA5E9),
+          regions: [
+            DiagramRegion(
+              label: 'Children <2 Years',
+              detail: 'HIGH RISK (CT recommended): GCS <15, palpable skull fracture.\n\nINTERMEDIATE (observation vs CT): Non-frontal scalp hematoma, LOC >=5 sec, severe mechanism, not acting normally per parent. Fall threshold: >3 feet.\n\nLOW RISK (<0.02% ciTBI): No criteria met -- CT NOT recommended.',
+              icon: Icons.baby_changing_station_rounded,
+              color: const Color(0xFFDC2626),
+            ),
+            DiagramRegion(
+              label: 'Children >=2 Years',
+              detail: 'HIGH RISK (CT recommended): GCS <15, signs of basilar skull fracture (Battle sign, raccoon eyes, hemotympanum, CSF otorrhea/rhinorrhea).\n\nINTERMEDIATE (observation vs CT): LOC, vomiting, severe mechanism, severe headache. Fall threshold: >5 feet.\n\nLOW RISK (<0.05% ciTBI): No criteria met -- CT NOT recommended.',
+              icon: Icons.child_care_rounded,
+              color: const Color(0xFF0EA5E9),
+            ),
+          ],
+          crossAxisCount: 1,
+        ),
       ],
     ),
 
@@ -244,6 +264,37 @@ final pediatricNeurotraumaContent = TopicData(
         MnemonicBlock(
           'Return-to-Play -- "LEARN before PLAY"',
           'Return-to-LEARN precedes return-to-PLAY. Brief rest 24-48 hours, then sub-symptom threshold activity. If symptoms recur at any step, drop back to the previous tolerated step and wait 24 hours. Minimum time from injury to full competition is at least 1 week (6 steps at 24 hours each), but children frequently require longer.',
+        ),
+
+        FlowchartBlock(
+          title: 'Return-to-Sport Protocol',
+          themeColor: const Color(0xFF0EA5E9),
+          nodes: [
+            FlowchartNode(
+              label: 'Step 1: Symptom-limited activity',
+              detail: 'Minimum 24 hours between steps. Initial 24-48 hours of relative rest, then gradual return to daily activities that do not provoke symptoms.',
+            ),
+            FlowchartNode(
+              label: 'Step 2: Light aerobic exercise',
+              detail: 'Walking, swimming, or stationary cycling at <70% max heart rate. No resistance training. Goal is to increase heart rate.',
+            ),
+            FlowchartNode(
+              label: 'Step 3: Sport-specific exercise',
+              detail: 'Running drills, skating drills, sport-specific movements. No head impact activities. Goal is to add movement complexity.',
+            ),
+            FlowchartNode(
+              label: 'Step 4: Non-contact training drills',
+              detail: 'Progressive complexity including passing drills and resistance training. May begin coordinated team activities without body contact.',
+            ),
+            FlowchartNode(
+              label: 'Step 5: Full-contact practice',
+              detail: 'Requires formal medical clearance before participation. Full participation in normal training activities including body contact.',
+            ),
+            FlowchartNode(
+              label: 'Step 6: Return to competition',
+              detail: 'Full unrestricted return to game play. If symptoms recur at any step, drop back to the previous tolerated step and wait 24 hours before retrying.',
+            ),
+          ],
         ),
 
         HeaderBlock('Assessment Tools'),

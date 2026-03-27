@@ -113,6 +113,86 @@ class MedicationCardBlock extends ContentBlock {
   });
 }
 
+// --- Visual & Interactive Block Types ---
+
+class ImageBlock extends ContentBlock {
+  final String assetPath;
+  final String? caption;
+  final double? maxHeight;
+  ImageBlock(this.assetPath, {this.caption, this.maxHeight});
+}
+
+class DiagramRegion {
+  final String label;
+  final String detail;
+  final IconData? icon;
+  final Color? color;
+  DiagramRegion({
+    required this.label,
+    required this.detail,
+    this.icon,
+    this.color,
+  });
+}
+
+class DiagramBlock extends ContentBlock {
+  final String title;
+  final Color themeColor;
+  final List<DiagramRegion> regions;
+  final int crossAxisCount;
+  DiagramBlock({
+    required this.title,
+    required this.themeColor,
+    required this.regions,
+    this.crossAxisCount = 2,
+  });
+}
+
+class FlowchartNode {
+  final String label;
+  final String? detail;
+  final bool isDecision;
+  final List<String>? branches;
+  FlowchartNode({
+    required this.label,
+    this.detail,
+    this.isDecision = false,
+    this.branches,
+  });
+}
+
+class FlowchartBlock extends ContentBlock {
+  final String title;
+  final Color themeColor;
+  final List<FlowchartNode> nodes;
+  FlowchartBlock({
+    required this.title,
+    required this.themeColor,
+    required this.nodes,
+  });
+}
+
+class TimelineEvent {
+  final String time;
+  final String label;
+  final String? detail;
+  final Color? color;
+  final IconData? icon;
+  TimelineEvent({
+    required this.time,
+    required this.label,
+    this.detail,
+    this.color,
+    this.icon,
+  });
+}
+
+class TimelineBlock extends ContentBlock {
+  final String title;
+  final List<TimelineEvent> events;
+  TimelineBlock({required this.title, required this.events});
+}
+
 // Enum for bespoke custom widgets
 enum CustomWidgetType {
   chromosomalSyndromesComparison,

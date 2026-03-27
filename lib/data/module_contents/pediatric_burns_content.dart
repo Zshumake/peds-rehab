@@ -148,6 +148,56 @@ final pediatricBurnsContent = TopicData(
           'Head percentage decreases with age (19% at birth to 7% in adults) while thigh percentage increases (5.5% at birth to 9.5% in adults). Neck, trunk, buttocks, genitalia, arms, hands, and feet remain relatively constant across ages.',
         ),
 
+        DiagramBlock(
+          title: 'Lund-Browder Body Regions',
+          themeColor: const Color(0xFFEF4444),
+          regions: [
+            DiagramRegion(
+              label: 'Head',
+              detail: '18% in infants, 9% in adults. Decreases ~1% per year of age. Largest proportional change across childhood.',
+              icon: Icons.face_rounded,
+              color: const Color(0xFFEF4444),
+            ),
+            DiagramRegion(
+              label: 'Each Arm',
+              detail: '9% at all ages (upper arm 4%, forearm 3%, hand 2.5%). Remains constant from infancy to adulthood.',
+              icon: Icons.back_hand_rounded,
+              color: const Color(0xFFF97316),
+            ),
+            DiagramRegion(
+              label: 'Anterior Trunk',
+              detail: '18% at all ages (chest 13% + abdomen contribution). Constant across age groups.',
+              icon: Icons.accessibility_new_rounded,
+              color: const Color(0xFFEAB308),
+            ),
+            DiagramRegion(
+              label: 'Posterior Trunk',
+              detail: '18% at all ages (back 13% + buttocks 5%). Constant across age groups.',
+              icon: Icons.airline_seat_flat_rounded,
+              color: const Color(0xFF22C55E),
+            ),
+            DiagramRegion(
+              label: 'Each Thigh',
+              detail: '14% in infants, 18% in adults. Increases ~0.5% per year of age as head proportion decreases.',
+              icon: Icons.directions_walk_rounded,
+              color: const Color(0xFF3B82F6),
+            ),
+            DiagramRegion(
+              label: 'Each Lower Leg',
+              detail: '14% combined (lower leg 5% + foot 3.5% in infants). Increases slightly with age to ~7% leg + 3.5% foot.',
+              icon: Icons.do_not_step_rounded,
+              color: const Color(0xFF8B5CF6),
+            ),
+            DiagramRegion(
+              label: 'Perineum',
+              detail: '1% at all ages. Constant across age groups. Burns here always require burn center referral.',
+              icon: Icons.circle_rounded,
+              color: const Color(0xFFEC4899),
+            ),
+          ],
+          crossAxisCount: 3,
+        ),
+
         HeaderBlock('Fluid Resuscitation'),
         BulletCardBlock(
           title: 'Parkland Formula',

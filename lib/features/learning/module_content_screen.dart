@@ -21,8 +21,32 @@ import '../../data/models/topic_content_model.dart';
 
 class ModuleContentScreen extends StatelessWidget {
   final ModuleModel module;
+  final int moduleIndex;
 
-  const ModuleContentScreen({super.key, required this.module});
+  const ModuleContentScreen({
+    super.key,
+    required this.module,
+    this.moduleIndex = 0,
+  });
+
+  static const _moduleColors = [
+    AppTheme.geneticsColor,
+    AppTheme.developmentColor,
+    AppTheme.limbDeficienciesColor,
+    AppTheme.bonesJointsColor,
+    AppTheme.connectiveTissueColor,
+    AppTheme.burnsColor,
+    AppTheme.cancersColor,
+    AppTheme.neurotraumaColor,
+    AppTheme.cerebralPalsyColor,
+    AppTheme.spinaBifidaColor,
+    AppTheme.neuromuscularColor,
+    AppTheme.pharmacologyColor,
+    AppTheme.orthoticsColor,
+    AppTheme.rehabContinuumColor,
+  ];
+
+  Color get _moduleColor => _moduleColors[moduleIndex % _moduleColors.length];
 
   TopicData? _getTopicData() {
     switch (module.id) {
@@ -66,17 +90,47 @@ class ModuleContentScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppTheme.warmCream,
       appBar: AppBar(
-        backgroundColor: AppTheme.warmCream,
+        backgroundColor: Color.lerp(AppTheme.warmCream, _moduleColor, 0.07),
         foregroundColor: AppTheme.textDark,
         elevation: 0,
-        title: Text(
-          module.title,
-          style: GoogleFonts.quicksand(fontWeight: FontWeight.w700),
+        title: Hero(
+          tag: 'module-title-$moduleIndex',
+          child: Material(
+            color: Colors.transparent,
+            child: Text(
+              module.title,
+              style: GoogleFonts.quicksand(
+                fontWeight: FontWeight.w700,
+                color: AppTheme.textDark,
+              ),
+            ),
+          ),
         ),
       ),
-      body: topicData != null
-          ? TopicContentView(topicData: topicData)
-          : _buildComingSoon(),
+      body: Column(
+        children: [
+          // Colored strip at top of content area
+          Container(
+            height: 3,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  _moduleColor.withValues(alpha: 0.6),
+                  _moduleColor.withValues(alpha: 0.15),
+                  Colors.transparent,
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: topicData != null
+                ? TopicContentView(
+                    topicData: topicData,
+                  )
+                : _buildComingSoon(),
+          ),
+        ],
+      ),
     );
   }
 

@@ -20,8 +20,8 @@ class TopicContentView extends StatelessWidget {
             unselectedLabelColor: AppTheme.textMuted,
             indicatorColor: AppTheme.coral,
             indicatorWeight: 3,
-            labelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w700, fontSize: 13),
-            unselectedLabelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w500, fontSize: 13),
+            labelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w700, fontSize: 14),
+            unselectedLabelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w500, fontSize: 14),
             tabs: topicData.tabs.map((t) => Tab(text: t.title)).toList(),
           ),
           Expanded(
@@ -30,8 +30,8 @@ class TopicContentView extends StatelessWidget {
                 return ListView.builder(
                   padding: const EdgeInsets.all(16),
                   itemCount: tab.blocks.length,
-                  itemBuilder: (context, index) {
-                    return _buildBlock(tab.blocks[index]);
+                  itemBuilder: (ctx, index) {
+                    return _buildBlock(ctx, tab.blocks[index]);
                   },
                 );
               }).toList(),
@@ -42,7 +42,7 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
-  Widget _buildBlock(ContentBlock block) {
+  Widget _buildBlock(BuildContext context, ContentBlock block) {
     if (block is HeaderBlock) return _buildHeader(block);
     if (block is TextBlock) return _buildText(block);
     if (block is PearlBlock) return _buildPearl(block);
@@ -53,16 +53,21 @@ class TopicContentView extends StatelessWidget {
     if (block is MedicationCardBlock) return _buildMedicationCard(block);
     if (block is ComparisonCardBlock) return _buildComparisonCard(block);
     if (block is ScaleBlock) return _buildScaleBlock(block);
+    if (block is ImageBlock) return _buildImage(block);
+    if (block is DiagramBlock) return _buildDiagram(context, block);
+    if (block is FlowchartBlock) return _buildFlowchart(block);
+    if (block is TimelineBlock) return _buildTimeline(context, block);
     return const SizedBox.shrink();
   }
 
+  // ── Header ──────────────────────────────────────────────────────────────
   Widget _buildHeader(HeaderBlock block) {
     return Padding(
       padding: const EdgeInsets.only(top: 24, bottom: 12),
       child: Text(
         block.title,
         style: GoogleFonts.quicksand(
-          fontSize: 22,
+          fontSize: 24,
           fontWeight: FontWeight.w800,
           color: AppTheme.coral,
         ),
@@ -70,6 +75,7 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  // ── Text ─────────────────────────────────────────────────────────────────
   Widget _buildText(TextBlock block) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -83,14 +89,15 @@ class TopicContentView extends StatelessWidget {
                 fontStyle: FontStyle.italic,
               )
             : GoogleFonts.dmSans(
-                fontSize: 14,
+                fontSize: 15,
                 height: 1.6,
-                color: AppTheme.textMuted,
+                color: AppTheme.textDark,
               ),
       ),
     );
   }
 
+  // ── Pearl ────────────────────────────────────────────────────────────────
   Widget _buildPearl(PearlBlock block) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -111,7 +118,7 @@ class TopicContentView extends StatelessWidget {
                 child: Text(
                   block.title,
                   style: GoogleFonts.quicksand(
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: AppTheme.pearlText,
                   ),
@@ -123,7 +130,7 @@ class TopicContentView extends StatelessWidget {
           Text(
             block.text,
             style: GoogleFonts.dmSans(
-              fontSize: 13,
+              fontSize: 14,
               height: 1.5,
               color: AppTheme.pearlText,
             ),
@@ -133,6 +140,7 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  // ── Bullet Card ──────────────────────────────────────────────────────────
   Widget _buildBulletCard(BulletCardBlock block) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -148,7 +156,7 @@ class TopicContentView extends StatelessWidget {
           Text(
             block.title,
             style: GoogleFonts.quicksand(
-              fontSize: 15,
+              fontSize: 16,
               fontWeight: FontWeight.w700,
               color: block.themeColor,
             ),
@@ -160,7 +168,7 @@ class TopicContentView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(top: 6),
+                      margin: const EdgeInsets.only(top: 7),
                       width: 7,
                       height: 7,
                       decoration: BoxDecoration(
@@ -172,7 +180,7 @@ class TopicContentView extends StatelessWidget {
                     Expanded(
                       child: Text(
                         point,
-                        style: GoogleFonts.dmSans(fontSize: 13, height: 1.5),
+                        style: GoogleFonts.dmSans(fontSize: 14, height: 1.5),
                       ),
                     ),
                   ],
@@ -183,76 +191,81 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  // ── Table (FULL WIDTH) ───────────────────────────────────────────────────
   Widget _buildTable(TableBlock block) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
+      width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: const Color(0xFFE8DDD0)),
       ),
+      clipBehavior: Clip.antiAlias,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (block.title.isNotEmpty)
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: block.headerColor ?? AppTheme.coral,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                ),
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              color: block.headerColor ?? AppTheme.coral,
               child: Text(
                 block.title,
                 style: GoogleFonts.quicksand(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 14,
+                  fontSize: 16,
                 ),
               ),
             ),
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(15),
-              bottomRight: Radius.circular(15),
+          // Header row
+          Container(
+            color: const Color(0xFFF5F0E8),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              children: block.columns.map((col) {
+                return Expanded(
+                  child: Text(
+                    col,
+                    style: GoogleFonts.dmSans(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      color: AppTheme.textDark,
+                    ),
+                  ),
+                );
+              }).toList(),
             ),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                headingRowColor: WidgetStateProperty.all(Colors.grey.shade100),
-                columnSpacing: 16,
-                horizontalMargin: 12,
-                headingTextStyle: GoogleFonts.dmSans(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 12,
-                  color: AppTheme.textDark,
-                ),
-                dataTextStyle: GoogleFonts.dmSans(
-                  fontSize: 12,
-                  color: AppTheme.textDark,
-                  height: 1.3,
-                ),
-                columns: block.columns.map((c) => DataColumn(label: Text(c))).toList(),
-                rows: block.rows.map((row) {
-                  return DataRow(
-                    cells: row.map((cell) => DataCell(
-                      ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 180),
-                        child: Text(cell),
+          ),
+          // Data rows
+          ...block.rows.asMap().entries.map((entry) {
+            final isEven = entry.key % 2 == 0;
+            return Container(
+              color: isEven ? Colors.white : const Color(0xFFFCFAF7),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: entry.value.map((cell) {
+                  return Expanded(
+                    child: Text(
+                      cell,
+                      style: GoogleFonts.dmSans(
+                        fontSize: 14,
+                        color: AppTheme.textDark,
+                        height: 1.4,
                       ),
-                    )).toList(),
+                    ),
                   );
                 }).toList(),
               ),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
   }
 
+  // ── Mnemonic ─────────────────────────────────────────────────────────────
   Widget _buildMnemonic(MnemonicBlock block) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -267,23 +280,23 @@ class TopicContentView extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.psychology_alt_rounded, color: AppTheme.bubblegumPink, size: 20),
+              const Icon(Icons.psychology_alt_rounded, color: AppTheme.bubblegumPink, size: 22),
               const SizedBox(width: 8),
               Text(
                 'Memory Aid',
                 style: GoogleFonts.quicksand(
-                  fontSize: 13,
+                  fontSize: 14,
                   fontWeight: FontWeight.w700,
                   color: AppTheme.mnemonicText,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Text(
             block.mnemonic,
             style: GoogleFonts.quicksand(
-              fontSize: 15,
+              fontSize: 18,
               fontWeight: FontWeight.w800,
               color: AppTheme.mnemonicText,
             ),
@@ -292,8 +305,8 @@ class TopicContentView extends StatelessWidget {
           Text(
             block.explanation,
             style: GoogleFonts.dmSans(
-              fontSize: 13,
-              height: 1.4,
+              fontSize: 14,
+              height: 1.5,
               color: AppTheme.mnemonicText,
             ),
           ),
@@ -302,6 +315,7 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  // ── Numbered List ────────────────────────────────────────────────────────
   Widget _buildNumberedList(NumberedListBlock block) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -313,8 +327,8 @@ class TopicContentView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 28,
-                  height: 28,
+                  width: 30,
+                  height: 30,
                   decoration: BoxDecoration(
                     color: AppTheme.coral.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(10),
@@ -323,17 +337,17 @@ class TopicContentView extends StatelessWidget {
                   child: Text(
                     item.key,
                     style: GoogleFonts.quicksand(
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: FontWeight.w700,
                       color: AppTheme.coral,
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     item.value,
-                    style: GoogleFonts.dmSans(fontSize: 13, height: 1.5),
+                    style: GoogleFonts.dmSans(fontSize: 14, height: 1.5),
                   ),
                 ),
               ],
@@ -344,13 +358,14 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  // ── Medication Card ──────────────────────────────────────────────────────
   Widget _buildMedicationCard(MedicationCardBlock block) {
     final borderColor = block.isAvoid ? AppTheme.avoidBorder : AppTheme.mutedPurple;
     final bgColor = block.isAvoid ? AppTheme.avoidBackground : const Color(0xFFF5F3FF);
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 6),
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(16),
@@ -364,14 +379,14 @@ class TopicContentView extends StatelessWidget {
               Icon(
                 block.isAvoid ? Icons.do_not_disturb_rounded : Icons.check_circle_rounded,
                 color: borderColor,
-                size: 18,
+                size: 20,
               ),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   '${block.name} (${block.drugClass})',
                   style: GoogleFonts.quicksand(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: borderColor,
                   ),
@@ -379,22 +394,28 @@ class TopicContentView extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 6),
-          Text('Mechanism: ${block.mechanism}', style: GoogleFonts.dmSans(fontSize: 12, height: 1.4)),
-          Text('Indication: ${block.indication}', style: GoogleFonts.dmSans(fontSize: 12, height: 1.4)),
-          if (block.dosing.isNotEmpty)
-            Text('Dosing: ${block.dosing}', style: GoogleFonts.dmSans(fontSize: 12, height: 1.4)),
-          if (block.sideEffects.isNotEmpty)
-            Text('Side Effects: ${block.sideEffects}', style: GoogleFonts.dmSans(fontSize: 12, height: 1.4)),
+          const SizedBox(height: 10),
+          _medField('Mechanism', block.mechanism),
+          _medField('Indication', block.indication),
+          if (block.dosing.isNotEmpty) _medField('Dosing', block.dosing),
+          if (block.sideEffects.isNotEmpty) _medField('Side Effects', block.sideEffects),
           if (block.boardPearl.isNotEmpty) ...[
-            const SizedBox(height: 6),
-            Text(
-              'Board Pearl: ${block.boardPearl}',
-              style: GoogleFonts.dmSans(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.italic,
-                color: borderColor,
+            const SizedBox(height: 8),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: AppTheme.pearlBackground,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                '⭐ ${block.boardPearl}',
+                style: GoogleFonts.dmSans(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.italic,
+                  color: AppTheme.pearlText,
+                ),
               ),
             ),
           ],
@@ -403,6 +424,35 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  Widget _medField(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4),
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: '$label: ',
+              style: GoogleFonts.dmSans(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: AppTheme.textDark,
+              ),
+            ),
+            TextSpan(
+              text: value,
+              style: GoogleFonts.dmSans(
+                fontSize: 14,
+                color: AppTheme.textDark,
+                height: 1.4,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ── Comparison Card ──────────────────────────────────────────────────────
   Widget _buildComparisonCard(ComparisonCardBlock block) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -417,28 +467,40 @@ class TopicContentView extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(block.icon, color: block.themeColor, size: 22),
+              Icon(block.icon, color: block.themeColor, size: 24),
               const SizedBox(width: 10),
-              Text(
-                block.title,
-                style: GoogleFonts.quicksand(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: block.themeColor,
+              Expanded(
+                child: Text(
+                  block.title,
+                  style: GoogleFonts.quicksand(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    color: block.themeColor,
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          Text(block.description, style: GoogleFonts.dmSans(fontSize: 13, height: 1.4)),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
+          Text(
+            block.description,
+            style: GoogleFonts.dmSans(fontSize: 14, height: 1.5),
+          ),
+          const SizedBox(height: 10),
           ...block.keyPoints.map((p) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
+                padding: const EdgeInsets.only(bottom: 5),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('• ', style: TextStyle(color: block.themeColor, fontWeight: FontWeight.bold)),
-                    Expanded(child: Text(p, style: GoogleFonts.dmSans(fontSize: 12, height: 1.4))),
+                    Text('• ',
+                        style: TextStyle(
+                            color: block.themeColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16)),
+                    Expanded(
+                        child: Text(p,
+                            style: GoogleFonts.dmSans(
+                                fontSize: 14, height: 1.5))),
                   ],
                 ),
               )),
@@ -447,33 +509,30 @@ class TopicContentView extends StatelessWidget {
     );
   }
 
+  // ── Scale Block ──────────────────────────────────────────────────────────
   Widget _buildScaleBlock(ScaleBlock block) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
+      width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: const Color(0xFFE8DDD0)),
       ),
+      clipBehavior: Clip.antiAlias,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: AppTheme.coral.withValues(alpha: 0.1),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-              ),
-            ),
+            padding: const EdgeInsets.all(14),
+            color: AppTheme.coral.withValues(alpha: 0.1),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   block.scaleName,
                   style: GoogleFonts.quicksand(
-                    fontSize: 15,
+                    fontSize: 17,
                     fontWeight: FontWeight.w700,
                     color: AppTheme.coral,
                   ),
@@ -481,46 +540,62 @@ class TopicContentView extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   block.description,
-                  style: GoogleFonts.dmSans(fontSize: 12, color: AppTheme.textMuted),
+                  style: GoogleFonts.dmSans(fontSize: 14, color: AppTheme.textMuted),
                 ),
               ],
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: DataTable(
-              columnSpacing: 16,
-              horizontalMargin: 12,
-              headingTextStyle: GoogleFonts.dmSans(fontWeight: FontWeight.w700, fontSize: 11),
-              dataTextStyle: GoogleFonts.dmSans(fontSize: 11, height: 1.3),
-              columns: block.columns.map((c) => DataColumn(label: Text(c))).toList(),
-              rows: block.rows.map((row) {
-                return DataRow(
-                  cells: row.map((cell) => DataCell(
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 160),
-                      child: Text(cell),
+          // Header row
+          Container(
+            color: const Color(0xFFF5F0E8),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: Row(
+              children: block.columns.map((col) {
+                return Expanded(
+                  child: Text(
+                    col,
+                    style: GoogleFonts.dmSans(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      color: AppTheme.textDark,
                     ),
-                  )).toList(),
+                  ),
                 );
               }).toList(),
             ),
           ),
+          // Data rows
+          ...block.rows.asMap().entries.map((entry) {
+            final isEven = entry.key % 2 == 0;
+            return Container(
+              color: isEven ? Colors.white : const Color(0xFFFCFAF7),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: entry.value.map((cell) {
+                  return Expanded(
+                    child: Text(
+                      cell,
+                      style: GoogleFonts.dmSans(
+                        fontSize: 14,
+                        height: 1.4,
+                        color: AppTheme.textDark,
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            );
+          }),
           if (block.boardPearl != null)
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: AppTheme.pearlBackground,
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                ),
-              ),
+              padding: const EdgeInsets.all(12),
+              color: AppTheme.pearlBackground,
               child: Text(
-                'Board Pearl: ${block.boardPearl}',
+                '⭐ ${block.boardPearl}',
                 style: GoogleFonts.dmSans(
-                  fontSize: 11,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.italic,
                   color: AppTheme.pearlText,
@@ -528,6 +603,542 @@ class TopicContentView extends StatelessWidget {
               ),
             ),
         ],
+      ),
+    );
+  }
+
+  // ── Image ──────────────────────────────────────────────────────────────
+  Widget _buildImage(ImageBlock block) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 12),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: block.maxHeight ?? 300),
+              child: Image.asset(
+                block.assetPath,
+                fit: BoxFit.contain,
+                width: double.infinity,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  height: 120,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF5F0E8),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.image_outlined, size: 32, color: AppTheme.textMuted),
+                        const SizedBox(height: 8),
+                        Text('Image not found', style: GoogleFonts.dmSans(color: AppTheme.textMuted, fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          if (block.caption != null) ...[
+            const SizedBox(height: 6),
+            Text(
+              block.caption!,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.dmSans(
+                fontSize: 12,
+                fontStyle: FontStyle.italic,
+                color: AppTheme.textMuted,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  // ── Interactive Diagram ────────────────────────────────────────────────
+  Widget _buildDiagram(BuildContext context, DiagramBlock block) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFFE8DDD0)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            color: block.themeColor,
+            child: Row(
+              children: [
+                const Icon(Icons.touch_app, color: Colors.white, size: 18),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    block.title,
+                    style: GoogleFonts.quicksand(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Tap to explore',
+                  style: GoogleFonts.dmSans(
+                    color: Colors.white70,
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: GridView.count(
+              crossAxisCount: block.crossAxisCount,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 1.6,
+              children: block.regions.map((region) {
+                final color = region.color ?? block.themeColor;
+                return GestureDetector(
+                  onTap: () => _showRegionDetail(context, region, color),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: color.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: color.withValues(alpha: 0.3)),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (region.icon != null)
+                          Icon(region.icon, color: color, size: 22),
+                        if (region.icon != null) const SizedBox(height: 4),
+                        Text(
+                          region.label,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.dmSans(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: AppTheme.textDark,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showRegionDetail(BuildContext context, DiagramRegion region, Color color) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) => Container(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(ctx).size.height * 0.6,
+        ),
+        decoration: const BoxDecoration(
+          color: Color(0xFFFFF8F0),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        ),
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                width: 40, height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                if (region.icon != null) ...[
+                  Icon(region.icon, color: color, size: 24),
+                  const SizedBox(width: 10),
+                ],
+                Expanded(
+                  child: Text(
+                    region.label,
+                    style: GoogleFonts.quicksand(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.textDark,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              region.detail,
+              style: GoogleFonts.dmSans(
+                fontSize: 15,
+                height: 1.6,
+                color: AppTheme.textDark,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ── Flowchart ──────────────────────────────────────────────────────────
+  Widget _buildFlowchart(FlowchartBlock block) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFFE8DDD0)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            color: block.themeColor,
+            child: Row(
+              children: [
+                const Icon(Icons.account_tree, color: Colors.white, size: 18),
+                const SizedBox(width: 8),
+                Text(
+                  block.title,
+                  style: GoogleFonts.quicksand(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: block.nodes.asMap().entries.map((entry) {
+                final index = entry.key;
+                final node = entry.value;
+                final isLast = index == block.nodes.length - 1;
+                return Column(
+                  children: [
+                    _FlowchartNodeWidget(
+                      node: node,
+                      color: block.themeColor,
+                    ),
+                    if (!isLast)
+                      Container(
+                        width: 3,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: block.themeColor.withValues(alpha: 0.3),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    if (!isLast && node.branches != null && node.branches!.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: node.branches!.map((b) => Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: block.themeColor.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text(b, style: GoogleFonts.dmSans(fontSize: 11, color: block.themeColor, fontWeight: FontWeight.w600)),
+                          )).toList(),
+                        ),
+                      ),
+                  ],
+                );
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ── Timeline ───────────────────────────────────────────────────────────
+  Widget _buildTimeline(BuildContext context, TimelineBlock block) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFFE8DDD0)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            color: AppTheme.coral,
+            child: Row(
+              children: [
+                const Icon(Icons.timeline, color: Colors.white, size: 18),
+                const SizedBox(width: 8),
+                Text(
+                  block.title,
+                  style: GoogleFonts.quicksand(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  'Scroll \u2192',
+                  style: GoogleFonts.dmSans(color: Colors.white70, fontSize: 11),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 140,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: block.events.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final event = entry.value;
+                  final color = event.color ?? AppTheme.coral;
+                  final isLast = index == block.events.length - 1;
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: event.detail != null ? () => _showTimelineDetail(context, event, color) : null,
+                        child: SizedBox(
+                          width: 90,
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 28, height: 28,
+                                decoration: BoxDecoration(
+                                  color: color,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: Colors.white, width: 3),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: color.withValues(alpha: 0.3),
+                                      blurRadius: 6,
+                                    ),
+                                  ],
+                                ),
+                                child: event.icon != null
+                                    ? Icon(event.icon, color: Colors.white, size: 14)
+                                    : null,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                event.time,
+                                style: GoogleFonts.quicksand(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w800,
+                                  color: color,
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                event.label,
+                                textAlign: TextAlign.center,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.dmSans(
+                                  fontSize: 11,
+                                  color: AppTheme.textDark,
+                                  height: 1.3,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      if (!isLast)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: Container(
+                            width: 24, height: 3,
+                            color: color.withValues(alpha: 0.25),
+                          ),
+                        ),
+                    ],
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showTimelineDetail(BuildContext context, TimelineEvent event, Color color) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) => Container(
+        decoration: const BoxDecoration(
+          color: Color(0xFFFFF8F0),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        ),
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                width: 40, height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              event.time,
+              style: GoogleFonts.quicksand(
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+                color: color,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              event.label,
+              style: GoogleFonts.quicksand(
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+                color: AppTheme.textDark,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              event.detail ?? '',
+              style: GoogleFonts.dmSans(
+                fontSize: 15,
+                height: 1.6,
+                color: AppTheme.textDark,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ── Flowchart Node Widget ────────────────────────────────────────────────
+class _FlowchartNodeWidget extends StatefulWidget {
+  final FlowchartNode node;
+  final Color color;
+  const _FlowchartNodeWidget({required this.node, required this.color});
+
+  @override
+  State<_FlowchartNodeWidget> createState() => _FlowchartNodeWidgetState();
+}
+
+class _FlowchartNodeWidgetState extends State<_FlowchartNodeWidget> {
+  bool _expanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final node = widget.node;
+    final color = widget.color;
+    return GestureDetector(
+      onTap: node.detail != null ? () => setState(() => _expanded = !_expanded) : null,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          color: node.isDecision
+              ? color.withValues(alpha: 0.12)
+              : color.withValues(alpha: 0.06),
+          borderRadius: node.isDecision
+              ? BorderRadius.circular(4)
+              : BorderRadius.circular(12),
+          border: Border.all(
+            color: color.withValues(alpha: node.isDecision ? 0.5 : 0.2),
+            width: node.isDecision ? 2 : 1,
+          ),
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Icon(
+                  node.isDecision ? Icons.help_outline : Icons.circle,
+                  size: node.isDecision ? 18 : 10,
+                  color: color,
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    node.label,
+                    style: GoogleFonts.dmSans(
+                      fontSize: 14,
+                      fontWeight: node.isDecision ? FontWeight.w700 : FontWeight.w600,
+                      color: AppTheme.textDark,
+                    ),
+                  ),
+                ),
+                if (node.detail != null)
+                  Icon(
+                    _expanded ? Icons.expand_less : Icons.expand_more,
+                    size: 20,
+                    color: color,
+                  ),
+              ],
+            ),
+            AnimatedCrossFade(
+              firstChild: const SizedBox.shrink(),
+              secondChild: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  node.detail ?? '',
+                  style: GoogleFonts.dmSans(
+                    fontSize: 13,
+                    height: 1.5,
+                    color: AppTheme.textDark,
+                  ),
+                ),
+              ),
+              crossFadeState: _expanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+              duration: const Duration(milliseconds: 200),
+            ),
+          ],
+        ),
       ),
     );
   }
