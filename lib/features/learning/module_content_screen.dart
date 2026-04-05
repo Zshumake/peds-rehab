@@ -18,6 +18,7 @@ import '../../data/module_contents/orthotics_at_content.dart';
 import '../../data/module_contents/rehab_continuum_content.dart';
 import 'topic_content_view.dart';
 import '../../data/models/topic_content_model.dart';
+import '../../core/services/progress_service.dart';
 
 class ModuleContentScreen extends StatelessWidget {
   final ModuleModel module;
@@ -126,6 +127,9 @@ class ModuleContentScreen extends StatelessWidget {
             child: topicData != null
                 ? TopicContentView(
                     topicData: topicData,
+                    onAllTabsVisited: () {
+                      ProgressService.markModuleComplete(module.id);
+                    },
                   )
                 : _buildComingSoon(),
           ),

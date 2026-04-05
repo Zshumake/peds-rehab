@@ -148,7 +148,10 @@ class _FlashcardViewState extends State<FlashcardView> {
           ),
         ],
       ),
-      body: Padding(
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
@@ -270,6 +273,8 @@ class _FlashcardViewState extends State<FlashcardView> {
               const SizedBox(height: 52),
           ],
         ),
+      ),
+      ),
       ),
     );
   }

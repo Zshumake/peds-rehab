@@ -3,42 +3,100 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../data/models/topic_content_model.dart';
 import '../../core/theme/app_theme.dart';
 
-class TopicContentView extends StatelessWidget {
+class TopicContentView extends StatefulWidget {
   final TopicData topicData;
+  final VoidCallback? onAllTabsVisited;
 
-  const TopicContentView({super.key, required this.topicData});
+  const TopicContentView({super.key, required this.topicData, this.onAllTabsVisited});
+
+  @override
+  State<TopicContentView> createState() => _TopicContentViewState();
+}
+
+class _TopicContentViewState extends State<TopicContentView> with TickerProviderStateMixin {
+  late TabController _tabController;
+  late Set<int> _visitedTabs;
+  bool _allVisited = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: widget.topicData.tabs.length, vsync: this);
+    _visitedTabs = {0}; // first tab is visible on load
+    _tabController.addListener(_onTabChanged);
+  }
+
+  void _onTabChanged() {
+    if (_tabController.indexIsChanging) return;
+    setState(() {
+      _visitedTabs.add(_tabController.index);
+    });
+    if (!_allVisited && _visitedTabs.length >= widget.topicData.tabs.length) {
+      _allVisited = true;
+      widget.onAllTabsVisited?.call();
+    }
+  }
+
+  @override
+  void dispose() {
+    _tabController.removeListener(_onTabChanged);
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: topicData.tabs.length,
-      child: Column(
-        children: [
-          TabBar(
-            isScrollable: topicData.tabs.length > 3,
-            labelColor: AppTheme.coral,
-            unselectedLabelColor: AppTheme.textMuted,
-            indicatorColor: AppTheme.coral,
-            indicatorWeight: 3,
-            labelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w700, fontSize: 14),
-            unselectedLabelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w500, fontSize: 14),
-            tabs: topicData.tabs.map((t) => Tab(text: t.title)).toList(),
+    return Column(
+      children: [
+        TabBar(
+          controller: _tabController,
+          isScrollable: widget.topicData.tabs.length > 3,
+          labelColor: AppTheme.coral,
+          unselectedLabelColor: AppTheme.textMuted,
+          indicatorColor: AppTheme.coral,
+          indicatorWeight: 3,
+          labelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w700, fontSize: 14),
+          unselectedLabelStyle: GoogleFonts.quicksand(fontWeight: FontWeight.w500, fontSize: 14),
+          tabs: widget.topicData.tabs.asMap().entries.map((e) {
+            final visited = _visitedTabs.contains(e.key);
+            return Tab(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(e.value.title),
+                  if (visited) ...[
+                    const SizedBox(width: 4),
+                    Icon(Icons.check_circle_rounded, size: 14,
+                      color: AppTheme.softTeal.withValues(alpha: 0.7)),
+                  ],
+                ],
+              ),
+            );
+          }).toList(),
+        ),
+        Expanded(
+          child: TabBarView(
+            controller: _tabController,
+            children: widget.topicData.tabs.map((tab) {
+              return ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                itemCount: tab.blocks.length,
+                itemBuilder: (ctx, index) {
+                  return Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 720),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: _buildBlock(ctx, tab.blocks[index]),
+                      ),
+                    ),
+                  );
+                },
+              );
+            }).toList(),
           ),
-          Expanded(
-            child: TabBarView(
-              children: topicData.tabs.map((tab) {
-                return ListView.builder(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: tab.blocks.length,
-                  itemBuilder: (ctx, index) {
-                    return _buildBlock(ctx, tab.blocks[index]);
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

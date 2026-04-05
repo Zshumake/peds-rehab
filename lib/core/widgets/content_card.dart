@@ -7,12 +7,14 @@ class ContentCard extends StatefulWidget {
   final ModuleModel module;
   final int index;
   final VoidCallback onTap;
+  final bool isComplete;
 
   const ContentCard({
     super.key,
     required this.module,
     required this.index,
     required this.onTap,
+    this.isComplete = false,
   });
 
   @override
@@ -135,24 +137,38 @@ class _ContentCardState extends State<ContentCard>
                     ),
                   ),
                   const Spacer(),
-                  // Module number
-                  Container(
-                    width: 22,
-                    height: 22,
-                    decoration: BoxDecoration(
-                      color: _moduleColor.withValues(alpha: 0.1),
-                      shape: BoxShape.circle,
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      '${widget.index + 1}',
-                      style: GoogleFonts.dmSans(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w700,
-                        color: _moduleColor,
-                      ),
-                    ),
-                  ),
+                  // Module number or checkmark
+                  widget.isComplete
+                      ? Container(
+                          width: 24,
+                          height: 24,
+                          decoration: BoxDecoration(
+                            color: AppTheme.softTeal.withValues(alpha: 0.15),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.check_rounded,
+                            color: AppTheme.softTeal,
+                            size: 16,
+                          ),
+                        )
+                      : Container(
+                          width: 22,
+                          height: 22,
+                          decoration: BoxDecoration(
+                            color: _moduleColor.withValues(alpha: 0.1),
+                            shape: BoxShape.circle,
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            '${widget.index + 1}',
+                            style: GoogleFonts.dmSans(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w700,
+                              color: _moduleColor,
+                            ),
+                          ),
+                        ),
                 ],
               ),
               const SizedBox(height: 12),

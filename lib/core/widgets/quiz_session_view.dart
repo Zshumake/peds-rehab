@@ -164,7 +164,10 @@ class _QuizSessionViewState extends State<QuizSessionView> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
-        child: Column(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
@@ -318,6 +321,8 @@ class _QuizSessionViewState extends State<QuizSessionView> {
             ],
           ],
         ),
+      ),
+      ),
       ),
     );
   }
