@@ -385,8 +385,8 @@ class _TopicContentViewState extends State<TopicContentView> with TickerProvider
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 30,
-                  height: 30,
+                  constraints: const BoxConstraints(minWidth: 32, minHeight: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: AppTheme.coral.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(10),
@@ -394,6 +394,7 @@ class _TopicContentViewState extends State<TopicContentView> with TickerProvider
                   alignment: Alignment.center,
                   child: Text(
                     item.key,
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.quicksand(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
@@ -403,9 +404,12 @@ class _TopicContentViewState extends State<TopicContentView> with TickerProvider
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: Text(
-                    item.value,
-                    style: GoogleFonts.dmSans(fontSize: 14, height: 1.5),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      item.value,
+                      style: GoogleFonts.dmSans(fontSize: 14, height: 1.5),
+                    ),
                   ),
                 ),
               ],
@@ -996,7 +1000,7 @@ class _TopicContentViewState extends State<TopicContentView> with TickerProvider
                       GestureDetector(
                         onTap: event.detail != null ? () => _showTimelineDetail(context, event, color) : null,
                         child: SizedBox(
-                          width: 90,
+                          width: 110,
                           child: Column(
                             children: [
                               Container(
