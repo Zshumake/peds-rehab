@@ -1,53 +1,51 @@
-name: Deploy to shuhub.xyz
+name: Deploy to GitHub Pages
+
+# Auto-build the Flutter web bundle and publish it to the gh-pages branch
+# on every push to main. GitHub Pages then serves it at
+# https://shuhub.xyz/peds-rehab/ within ~1-2 minutes of the workflow
+# finishing.
+#
+# Manual dispatch is also enabled so you can force a redeploy from the
+# Actions tab without pushing a new commit.
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
+
+# Needed so the built-in GITHUB_TOKEN can push to the gh-pages branch.
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout peds-rehab repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
           flutter-version: '3.41.2'
+          channel: stable
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Flutter web
+      - name: Build web (release)
         run: flutter build web --release --base-href /peds-rehab/
 
-      - name: Checkout Zshumake.github.io repo
-        uses: actions/checkout@v4
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          repository: Zshumake/Zshumake.github.io
-          token: ${{ secrets.SHUHUB_DEPLOY_TOKEN }}
-          path: shuhub-repo
-
-      - name: Copy build to shuhub-repo/peds-rehab
-        run: |
-          rm -rf shuhub-repo/peds-rehab
-          mkdir -p shuhub-repo/peds-rehab
-          cp -R build/web/* shuhub-repo/peds-rehab/
-
-      - name: Commit and push to shuhub
-        run: |
-          cd shuhub-repo
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add peds-rehab/
-          if git diff --cached --quiet; then
-            echo "No changes to deploy"
-          else
-            git commit -m "Deploy peds-rehab from ${{ github.sha }}"
-            git push
-          fi
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "Deploy ${{ github.sha }}"
