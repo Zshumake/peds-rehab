@@ -341,10 +341,10 @@ final limbDeficienciesContent = TopicData(
           themeColor: const Color(0xFF8B5CF6),
           backgroundColor: const Color(0xFFF5F3FF),
           points: [
-            'Acheiria: Missing hand or foot',
-            'Adactyly: Absent metacarpal or metatarsal',
+            'Acheiria: Absence of the hand (apodia = absence of the foot)',
+            'Adactyly: Absence of digits (fingers or toes)',
             'Amelia: Absence of a limb',
-            'Aphalangia: Absent finger or toe',
+            'Aphalangia: Absence of one or more phalanges',
             'Hemimelia: Absence of half a limb',
             'Meromelia: Partial absence of a limb',
             'Phocomelia ("seal limb"): Flipper-like extremity with absent proximal limb and normal hand/foot',
