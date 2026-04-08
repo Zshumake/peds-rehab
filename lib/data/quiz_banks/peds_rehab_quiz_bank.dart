@@ -278,7 +278,7 @@ class PedsRehabQuizBank {
     question: 'According to IDEA, an IFSP is family-centered and used in natural environments. At what age must the transition to an IEP occur?',
     options: ['At age 2', 'At age 3', 'At age 5', 'At school entry'],
     correctIndex: 1,
-    explanation: 'IDEA Part C provides early intervention (birth-3 years) using an IFSP in natural environments. At age 3, children transition to Part B, which provides school-based special education using a child-centered IEP. Transition planning should begin at least 6 months before the third birthday.',
+    explanation: 'IDEA Part C provides early intervention (birth-3 years) using an IFSP in natural environments. At age 3, children transition to Part B, which provides school-based special education using a child-centered IEP. IDEA requires a transition conference at least 90 days (and up to 9 months) before the third birthday.',
     moduleId: 'development-growth',
     difficulty: 'basic',
     ),

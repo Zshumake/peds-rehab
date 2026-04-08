@@ -87,7 +87,7 @@ final bonesJointsContent = TopicData(
         ),
         PearlBlock(
           'Board Pearl — DDH Exam',
-          'Positive findings on Barlow/Ortolani should be confirmed by imaging and should NOT be repeated over and over. These tests are now done under ultrasound observation to avoid missing bilateral dislocations.',
+          'Positive findings on Barlow/Ortolani should be confirmed by imaging and should NOT be repeated over and over (repeated provocation can worsen injury). Bilateral DDH is particularly challenging to detect clinically because the Galeazzi sign relies on leg-length asymmetry and will be negative when both hips are dislocated symmetrically — this is why imaging screening is essential in high-risk infants.',
         ),
 
         FlowchartBlock(
@@ -541,7 +541,7 @@ final bonesJointsContent = TopicData(
           backgroundColor: const Color(0xFFF0FDFA),
           points: [
             'Passive ROM stretching, tummy time, and environmental repositioning effective in 90-95% by age 1 year',
-            'Stretch contracted SCM 15-29 times per session, 4-6 times daily (every diaper change)',
+            'Stretch contracted SCM 10-15 repetitions per session, multiple times daily (every diaper change)',
             'Right torticollis: Tilt head LEFT, rotate face RIGHT',
             'Mobile placement: For right torticollis, place mobile to RIGHT of crib',
             'If normal ROM not obtained by 1 year: Persistent facial asymmetry will result',

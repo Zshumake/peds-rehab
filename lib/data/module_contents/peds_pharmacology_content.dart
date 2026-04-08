@@ -438,7 +438,7 @@ final pedsPharmacologyContent = TopicData(
           indication: 'All types of SMA (Types 1-4). FDA-approved December 2016 -- first approved SMA treatment.',
           dosing: 'INTRATHECAL injection via lumbar puncture. Loading: Days 0, 14, 28, 63. Maintenance: Every 4 months. Lifelong treatment. ~\$375,000/year.',
           sideEffects: 'Thrombocytopenia, coagulation abnormalities, renal toxicity. Procedural risks of repeated LPs. Technically challenging with scoliosis/spinal fusion.',
-          boardPearl: 'ENDEAR trial (SMA Type 1): 51% achieved motor milestones vs 0% in sham. CHERISH trial (Types 2/3): HFMSE improvement +3.9 vs -1.0 in sham. NURTURE trial (pre-symptomatic): Near-normal motor development when treated before symptoms.',
+          boardPearl: 'ENDEAR trial (SMA Type 1): 51% achieved motor milestones vs 0% in sham. CHERISH trial (Types 2/3, Mercuri 2018 NEJM): HFMSE improvement +4.0 vs -1.9 in sham. NURTURE trial (pre-symptomatic): Near-normal motor development when treated before symptoms.',
         ),
         MedicationCardBlock(
           name: 'Onasemnogene abeparvovec (Zolgensma)',
